@@ -1,43 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Parallax Demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body, html { margin: 0; padding: 0; height: 100%; }
-    .parallax-bg {
-      /* Parallax background image */
-      background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80');
-      min-height: 70vh;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .parallax-content {
-      background: rgba(255,255,255,0.8);
-      padding: 2em 3em;
-      border-radius: 1em;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.08);
-      text-align: center;
-    }
-    h1 { font-size: 2.5rem; margin: 0 0 1rem 0; }
-    p { font-size: 1.2rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notelle Tech Industries - Genesis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f7fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #4a5568;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            width: 4px;
+            height: 28px;
+            background: #4a5568;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            width: 4px;
+            height: 28px;
+            background: #4a5568;
+        }
+
+        .logo-diagonal {
+            position: absolute;
+            width: 20px;
+            height: 4px;
+            background: #718096;
+            transform: rotate(45deg);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #2d3748;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2d3748;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #718096;
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            background: #4a5568;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #2d3748;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .geometric-art {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .geo-shape {
+            position: absolute;
+            border: 2px solid #4a5568;
+        }
+
+        .geo-shape:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 0;
+            left: 100px;
+            animation: rotate 20s linear infinite;
+        }
+
+        .geo-shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 50px;
+            left: 0;
+            transform: rotate(45deg);
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        .geo-shape:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 0;
+            right: 0;
+            border-radius: 50%;
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+
+        .about-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            font-size: 1.2rem;
+            color: #4a5568;
+            line-height: 1.8;
+            background: linear-gradient(135deg, rgba(74, 85, 104, 0.05) 0%, rgba(45, 55, 72, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #4a5568;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(247, 250, 252, 0.9) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4a5568, #718096);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4a5568, #2d3748);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(74, 85, 104, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(74, 85, 104, 0.4);
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .feature p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #e2e8f0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .geometric-art {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="parallax-bg">
-    <div class="parallax-content">
-      <h1>Parallax UI Illusion</h1>
-      <p>Scroll to see the background move at a different speed than the content!</p>
-    </div>
-  </div>
-  <div style="height:80vh;background:#fafaff;display:flex;align-items:center;justify-content:center;">
-    <p style="font-size:1.3rem;color:#666;">More content here...</p>
-  </div>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <div class="logo-diagonal"></div>
+                </div>
+                <span class="logo-text">Notelle</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Notelle Tech Industries</h1>
+                    <div class="tagline">GENESIS</div>
+                    <p class="hero-description">
+                        Where African innovation begins. We are an independent technology company based in Nyamira, Kenya, dedicated to transforming lives across Africa through cutting-edge solutions in AI, healthcare, agriculture, and defense systems.
+                    </p>
+                    <a href="#contact" class="cta-button">Start Your Journey</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="geometric-art">
+                        <div class="geo-shape"></div>
+                        <div class="geo-shape"></div>
+                        <div class="geo-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Transforming Africa Through Technology</h2>
+            <div class="about-intro">
+                <p>We are an independent African-based technology and innovation company dedicated to making African lives better through cutting-edge solutions. From our headquarters in Nyamira, Kenya, we're building the future of technology across the continent.</p>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Developing intelligent systems that solve real African challenges, from predictive analytics to automated solutions that enhance daily life.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Health Systems</h3>
+                    <p>Revolutionary healthcare technology that improves access to quality medical care across Africa, bridging the gap between urban and rural communities.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌾</div>
+                    <h3>Agricultural Innovation</h3>
+                    <p>Smart farming solutions that boost productivity and sustainability, empowering farmers with data-driven insights and modern agricultural techniques.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💾</div>
+                    <h3>Data Infrastructure</h3>
+                    <p>Building robust data ecosystems and storage infrastructure that secure and optimize information flow across African businesses and institutions.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Ultra Tech Defense</h3>
+                    <p>Advanced security systems and defense technologies that protect digital assets and ensure the safety of critical infrastructure.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💻</div>
+                    <h3>Software Development</h3>
+                    <p>Custom applications and platforms designed specifically for African markets, addressing unique challenges with innovative software solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Our Genesis</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⟨⟩</div>
+                    <h3>Software Development</h3>
+                    <p>Custom applications built with clean architecture and modern frameworks. From concept to deployment, we create software that works.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">☁</div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Scalable cloud infrastructure designed for performance and reliability. We help you leverage the power of modern cloud platforms.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Innovation Consulting</h3>
+                    <p>Strategic technology guidance to transform your business. We identify opportunities and create roadmaps for digital transformation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>hello@notelletech.com</p>
+                    <p>+254 (0) 123-456789</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Location</h4>
+                    <p>Nyamira, Kenya</p>
+                    <p>East Africa</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <p><a href="https://linkedin.com/company/notelle-tech" target="_blank">LinkedIn: @notelle-tech</a></p>
+                    <p><a href="https://twitter.com/notelletech" target="_blank">Twitter: @notelletech</a></p>
+                    <p><a href="https://instagram.com/notelletech" target="_blank">Instagram: @notelletech</a></p>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #4a5568;">
+                © 2025 Notelle Tech Industries. Where innovation begins.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Add subtle parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.geometric-art');
+            if (parallax && scrolled < window.innerHeight) {
+                parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
