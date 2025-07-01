@@ -848,3 +848,422 @@
     </script>
 </body>
 </html>
+To remove the Grok logo in the address bar and replace it with an "N" logo for Notelle, add a favicon link in the <head> section of your HTML. You currently have no <link rel="icon"> in your code.
+
+Here’s what you should do:
+
+1. Copy and paste this line inside your <head> (before the <style> tag or anywhere inside <head>):
+HTML
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%232d3748'/><text x='50%' y='55%' font-size='40' text-anchor='middle' fill='white' font-family='Segoe UI, Arial, sans-serif' dy='.3em'>N</text></svg>">
+2. Your <head> will look like this:
+HTML
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notelle Tech Industries - Genesis | AI & Indigenous Language Technology</title>
+    <meta name="description" content="Notelle Tech Industries - African technology company specializing in AI, indigenous language preservation, healthcare, and agricultural innovation from Nyamira, Kenya.">
+    <meta name="keywords" content="African technology, AI, indigenous languages, healthcare tech, agricultural innovation, Kenya, Nyamira">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%232d3748'/><text x='50%' y='55%' font-size='40' text-anchor='middle' fill='white' font-family='Segoe UI, Arial, sans-serif' dy='.3em'>N</text></svg>">
+    <style>
+        /* ...your styles... */
+    </style>
+</head>
+What this does:
+
+The favicon in the address bar will now be a bold white "N" on a dark blue background, matching your brand.
+No Grok logo will display.
+If you want to use a custom image (PNG/ICO) instead, upload it to your repo and change the href to that file.
+
+Let me know if you want instructions for a PNG/ICO icon!
+
+edit the code i sent you
+Here is your edited HTML code. I have added the favicon "N" logo to the <head> section as requested.
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notelle Tech Industries - Genesis | AI & Indigenous Language Technology</title>
+    <meta name="description" content="Notelle Tech Industries - African technology company specializing in AI, indigenous language preservation, healthcare, and agricultural innovation from Nyamira, Kenya.">
+    <meta name="keywords" content="African technology, AI, indigenous languages, healthcare tech, agricultural innovation, Kenya, Nyamira">
+    
+    <!-- Favicon "N" logo -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%232d3748'/><text x='50%' y='55%' font-size='40' text-anchor='middle' fill='white' font-family='Segoe UI, Arial, sans-serif' dy='.3em'>N</text></svg>">
+
+    <style>
+        /* ... your existing styles ... */
+    </style>
+</head>
+<body>
+    <!-- The rest of your HTML remains unchanged -->
+    <!-- ... -->
+</body>
+</html>
+What was changed:
+
+The following line was added inside the <head> section, before your <style> tag:
+HTML
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%232d3748'/><text x='50%' y='55%' font-size='40' text-anchor='middle' fill='white' font-family='Segoe UI, Arial, sans-serif' dy='.3em'>N</text></svg>">
+Now, the favicon in the address bar will show a white "N" on a dark background, matching your Notelle brand.
+No other changes are needed.
+
+Let me know if you want this as a downloadable file or want to use a PNG/ICO instead!
+
+rewrite the whole code
+Certainly! Below is your complete, rewritten HTML code for index.html with the following improvements:
+
+Favicon: An “N” logo shows in the address bar.
+Clean structure: Code is kept semantic and modern; unnecessary repetition is minimized.
+Everything else: All original sections, styles, and scripts are preserved and improved for clarity.
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notelle Tech Industries - Genesis | AI & Indigenous Language Technology</title>
+    <meta name="description" content="Notelle Tech Industries - African technology company specializing in AI, indigenous language preservation, healthcare, and agricultural innovation from Nyamira, Kenya.">
+    <meta name="keywords" content="African technology, AI, indigenous languages, healthcare tech, agricultural innovation, Kenya, Nyamira">
+    <!-- Favicon "N" logo -->
+    <link rel="icon" type="image/svg+xml"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%232d3748'/><text x='50%' y='55%' font-size='40' text-anchor='middle' fill='white' font-family='Segoe UI, Arial, sans-serif' dy='.3em'>N</text></svg>">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2d3748; background: #f7fafc; line-height: 1.6; scroll-behavior: smooth; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #e2e8f0; transition: all 0.3s; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { display: flex; align-items: center; gap: 15px; }
+        .logo-icon { width: 40px; height: 40px; border: 2px solid #4a5568; border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative; transition: transform 0.3s; }
+        .logo:hover .logo-icon { transform: rotate(5deg); }
+        .logo-diagonal { position: absolute; width: 20px; height: 4px; background: #718096; transform: rotate(45deg);}
+        .logo-icon::before, .logo-icon::after { content: ''; position: absolute; width: 4px; height: 28px; background: #4a5568; top: 6px; }
+        .logo-icon::before { left: 6px; }
+        .logo-icon::after { right: 6px; }
+        .logo-text { font-size: 1.5rem; font-weight: 600; color: #2d3748; text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #4a5568; font-weight: 500; transition: all 0.3s; position: relative;}
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: #4a5568; transition: width 0.3s;}
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: #2d3748; }
+        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #4a5568; }
+        .hero { height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); position: relative; overflow: hidden;}
+        .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><defs><pattern id=&quot;grid&quot; width=&quot;10&quot; height=&quot;10&quot; patternUnits=&quot;userSpaceOnUse&quot;><path d=&quot;M 10 0 L 0 0 0 10&quot; fill=&quot;none&quot; stroke=&quot;%23e2e8f0&quot; stroke-width=&quot;0.5&quot;/></pattern></defs><rect width=&quot;100&quot; height=&quot;100&quot; fill=&quot;url(%23grid)&quot;/></svg>'); opacity: 0.3;}
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; opacity: 0; animation: fadeInUp 1s ease forwards;}
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: translateY(0);} }
+        .hero-text h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; color: #2d3748; background: linear-gradient(135deg, #2d3748, #4a5568); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;}
+        .tagline { font-size: 1.5rem; color: #718096; margin-bottom: 2rem; letter-spacing: 3px; font-weight: 400; text-transform: uppercase;}
+        .hero-description { font-size: 1.1rem; color: #4a5568; margin-bottom: 3rem; line-height: 1.8; }
+        .cta-button { background: linear-gradient(135deg, #4a5568, #2d3748); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s; display: inline-block; box-shadow: 0 4px 15px rgba(74,85,104,0.3);}
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(74,85,104,0.4);}
+        .hero-visual { display: flex; justify-content: center; align-items: center;}
+        .geometric-art { width: 300px; height: 300px; position: relative; animation: float 6s ease-in-out infinite;}
+        @keyframes float { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-20px);} }
+        .geo-shape { position: absolute; border: 2px solid #4a5568; background: rgba(74,85,104,0.1);}
+        .geo-shape:nth-child(1) { width: 100px; height: 100px; top: 0; left: 100px; animation: rotate 20s linear infinite; border-radius: 10px;}
+        .geo-shape:nth-child(2) { width: 60px; height: 60px; top: 50px; left: 0; transform: rotate(45deg); animation: rotate 15s linear infinite reverse; border-radius: 50%;}
+        .geo-shape:nth-child(3) { width: 80px; height: 80px; bottom: 0; right: 0; border-radius: 50%; animation: rotate 25s linear infinite;}
+        @keyframes rotate { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+        .section { padding: 5rem 0; }
+        .section:nth-child(even) { background: white; }
+        .section-title { text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #2d3748; position: relative;}
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: linear-gradient(135deg, #4a5568, #718096); border-radius: 2px;}
+        .about-intro { text-align: center; max-width: 800px; margin: 0 auto 4rem auto; font-size: 1.2rem; color: #4a5568; line-height: 1.8; background: linear-gradient(135deg, rgba(74,85,104,0.05) 0%, rgba(45,55,72,0.05) 100%); padding: 2rem; border-radius: 15px; border-left: 5px solid #4a5568;}
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;}
+        .feature { background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(247,250,252,0.9) 100%); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(226,232,240,0.5); transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden;}
+        .feature::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #4a5568, #718096); transform: scaleX(0); transition: transform 0.4s;}
+        .feature:hover::before { transform: scaleX(1);}
+        .feature:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.15);}
+        .feature-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #4a5568, #2d3748); margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(74,85,104,0.3); transition: all 0.3s;}
+        .feature:hover .feature-icon { transform: scale(1.1) rotate(5deg); box-shadow: 0 12px 30px rgba(74,85,104,0.4);}
+        .feature h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #2d3748; font-weight: 600;}
+        .feature p { color: #4a5568; line-height: 1.7;}
+        .contact-form { max-width: 600px; margin: 0 auto; background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);}
+        .form-group { margin-bottom: 2rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #2d3748; font-weight: 600;}
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; transition: border-color 0.3s;}
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #4a5568;}
+        .form-group textarea { resize: vertical; min-height: 120px;}
+        .submit-btn { width: 100%; background: linear-gradient(135deg, #4a5568, #2d3748); color: white; padding: 1rem; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s;}
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(74,85,104,0.3);}
+        footer { background: #2d3748; color: white; padding: 3rem 0; text-align: center;}
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;}
+        .footer-section h4 { margin-bottom: 1.5rem; color: #e2e8f0; font-weight: 600;}
+        .footer-section p, .footer-section a { color: #a0aec0; text-decoration: none; margin-bottom: 0.5rem; display: block;}
+        .footer-section a:hover { color: #e2e8f0; transform: translateX(5px); transition: all 0.3s;}
+        .social-links { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;}
+        .social-links a { display: inline-block; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 50%; transition: all 0.3s;}
+        .social-links a:hover { background: rgba(255,255,255,0.2); transform: scale(1.1);}
+        @media (max-width: 768px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 2rem;}
+            .hero-text h1 { font-size: 2.5rem;}
+            .nav-links { display: none;}
+            .mobile-menu-toggle { display: block;}
+            .geometric-art { width: 200px; height: 200px;}
+            .features { grid-template-columns: 1fr;}
+            .footer-content { grid-template-columns: 1fr; text-align: center;}
+            .social-links { justify-content: center;}
+        }
+        .loading { opacity: 0; animation: fadeIn 0.6s ease forwards;}
+        @keyframes fadeIn { to { opacity: 1; } }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-icon"><div class="logo-diagonal"></div></div>
+                <a href="#home" class="logo-text">Notelle</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Notelle Tech Industries</h1>
+                    <div class="tagline">GENESIS</div>
+                    <p class="hero-description">
+                        Where African innovation begins. We are an independent technology company based in Nyamira, Kenya, dedicated to transforming lives across Africa through cutting-edge solutions in AI, indigenous language preservation, healthcare, agriculture, and defense systems.
+                    </p>
+                    <a href="#contact" class="cta-button">Start Your Journey</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="geometric-art">
+                        <div class="geo-shape"></div>
+                        <div class="geo-shape"></div>
+                        <div class="geo-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Transforming Africa Through Technology</h2>
+            <div class="about-intro">
+                <p>We are an independent African-based technology and innovation company dedicated to making African lives better through cutting-edge solutions. From our headquarters in Nyamira, Kenya, we're building the future of technology across the continent, with special focus on preserving and digitizing indigenous languages and cultures.</p>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Developing intelligent systems that solve real African challenges, from predictive analytics to automated solutions that enhance daily life and preserve cultural heritage.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🗣️</div>
+                    <h3>Indigenous Language Technology</h3>
+                    <p>Pioneering voice and text data collection systems for African indigenous languages, ensuring cultural preservation and creating AI systems that understand and speak local languages.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Health Systems</h3>
+                    <p>Revolutionary healthcare technology that improves access to quality medical care across Africa, bridging the gap between urban and rural communities.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌾</div>
+                    <h3>Agricultural Innovation</h3>
+                    <p>Smart farming solutions that boost productivity and sustainability, empowering farmers with data-driven insights and modern agricultural techniques.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💾</div>
+                    <h3>Data Infrastructure</h3>
+                    <p>Building robust data ecosystems and storage infrastructure that secure and optimize information flow across African businesses and institutions.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Ultra Tech Defense</h3>
+                    <p>Advanced security systems and defense technologies that protect digital assets and ensure the safety of critical infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Genesis</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⟨⟩</div>
+                    <h3>Software Development</h3>
+                    <p>Custom applications built with clean architecture and modern frameworks. From concept to deployment, we create software that works for African contexts and global standards.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">☁</div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Scalable cloud infrastructure designed for performance and reliability. We help you leverage the power of modern cloud platforms while maintaining data sovereignty.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Innovation Consulting</h3>
+                    <p>Strategic technology guidance to transform your business. We identify opportunities and create roadmaps for digital transformation that respect local contexts.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Cultural Tech Solutions</h3>
+                    <p>Specialized technology solutions that preserve and promote African cultures, languages, and traditions while embracing modern innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact" style="background: #f7fafc;">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-form">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <a href="mailto:mebaelleton94@gmail.com">mebaelleton94@gmail.com</a>
+                    <a href="tel:+254113638639">+254 113 638 639</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Location</h4>
+                    <p>Nyamira, Kenya</p>
+                    <p>East Africa</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/notelle-tech" target="_blank" title="LinkedIn">💼</a>
+                        <a href="https://twitter.com/notelletech" target="_blank" title="Twitter">🐦</a>
+                        <a href="https://instagram.com/notelletech" target="_blank" title="Instagram">📸</a>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #4a5568;">
+                © 2025 Notelle Tech Industries. Where innovation begins.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Add subtle parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.geometric-art');
+            if (parallax && scrolled < window.innerHeight) {
+                parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('loading');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.feature').forEach(feature => observer.observe(feature));
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            const subject = encodeURIComponent(data.subject);
+            const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+            const mailtoLink = `mailto:mebaelleton94@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+            alert('Thank you for your message! Your email client will open to send the message.');
+            event.target.reset();
+        }
+
+        // Add loading animation to page
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Preload animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.feature, .section-title, .about-intro');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                el.style.transitionDelay = `${index * 0.1}s`;
+            });
+            const animateOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            elements.forEach(el => animateOnScroll.observe(el));
+        });
+    </script>
+</body>
+</html>
