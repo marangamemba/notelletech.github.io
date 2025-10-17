@@ -1,812 +1,686 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notelle Tech Industries - Mzalendo 1.0: Foundational Knowledge Engine</title>
-    <meta name="description" content="Notelle Tech Industries - African technology company pioneering the Mzalendo 1.0 meta-syntactic engine for generating foundational knowledge across science, technology, healthcare, agriculture, and defense systems, alongside indigenous language preservation from Nyamira, Kenya.">
-    <meta name="keywords" content="African technology, Mzalendo 1.0, meta-syntactic symbol manipulation, foundational knowledge, science, technology, healthcare, agriculture, ultra defense systems, cybersecurity, indigenous languages, Kenya, Nyamira, mathematical discovery, logic engine">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Notelle Tech Industries - Mzalendo 1.0: Foundational Knowledge Engine</title>
+  <meta name="description" content="Notelle Tech Industries pioneers the Mzalendo 1.0 meta-syntactic engine for generating foundational knowledge in science, tech, healthcare, agriculture, defense, and indigenous language preservation from Nyamira, Kenya." />
+  <meta name="keywords" content="African technology, Mzalendo 1.0, meta-syntactic symbol manipulation, foundational knowledge, science, technology, healthcare, agriculture, ultra defense systems, cybersecurity, indigenous languages, Kenya, Nyamira" />
 
-    <!-- Favicon "N" logo -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231a1a1a'/><text x='50%' y='55%' font-size='40' text-anchor='middle' fill='white' font-family='Segoe UI, Arial, sans-serif' dy='.3em'>N</text></svg>">
+  <!-- Favicon (Embedded SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231a1a1a'/><text x='50%' y='55%' font-size='40' text-anchor='middle' fill='white' font-family='Segoe UI, Arial, sans-serif' dy='.3em'>N</text></svg>" />
 
-    <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', sans-serif; /* Using Inter for a modern look */
-            line-height: 1.6;
-            color: #e0e0e0; /* Light gray text */
-            background: #121212; /* Dark background */
-            scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-        /* Header */
-        header {
-            background: rgba(18, 18, 18, 0.95); /* Slightly transparent dark header */
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #333; /* Darker border */
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            border: 2px solid #6200ee; /* Purple border */
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-            overflow: hidden; /* For the inner diagonal effect */
-        }
-        .logo:hover .logo-icon {
-            transform: rotate(5deg);
-        }
-        .logo-icon::before, .logo-icon::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            height: 28px;
-            background: #bb86fc; /* Lighter purple */
-        }
-        .logo-icon::before {
-            left: 6px;
-            top: 6px;
-        }
-        .logo-icon::after {
-            right: 6px;
-            top: 6px;
-        }
-        .logo-diagonal {
-            position: absolute;
-            width: 20px;
-            height: 4px;
-            background: #6200ee; /* Purple */
-            transform: rotate(45deg);
-        }
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #e0e0e0; /* Light text */
-            text-decoration: none;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #a0a0a0; /* Muted text */
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: #6200ee; /* Purple underline */
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        .nav-links a:hover {
-            color: #e0e0e0; /* Lighter on hover */
-        }
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #e0e0e0;
-        }
+  <style>
+    /* ===== BASE STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --bg: #121212;
+      --bg-light: #1a1a1a;
+      --bg-card: #2a2a2a;
+      --text: #e0e0e0;
+      --text-muted: #b0b0b0;
+      --border: #333;
+      --accent: #6200ee;
+      --accent-light: #bb86fc;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #222222 100%); /* Dark gradient */
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            /* Subtle geometric grid overlay */
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.2;
-        }
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #e0e0e0; /* Fallback for transparency */
-            background: linear-gradient(135deg, #8c9eff, #bb86fc); /* Futuristic gradient for title */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .tagline {
-            font-size: 1.5rem;
-            color: #a0a0a0; /* Muted gray */
-            margin-bottom: 2rem;
-            letter-spacing: 3px;
-            font-weight: 400;
-            text-transform: uppercase;
-        }
-        .hero-description {
-            font-size: 1.1rem;
-            color: #b0b0b0; /* Slightly lighter muted gray */
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-        .cta-button {
-            background: linear-gradient(135deg, #6200ee, #bb86fc); /* Purple gradient */
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(98, 0, 238, 0.3); /* Purple shadow */
-        }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(98, 0, 238, 0.4);
-        }
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .geometric-art {
-            width: 300px;
-            height: 300px;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); } /* Added rotation */
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        .geo-shape {
-            position: absolute;
-            border: 2px solid #6200ee; /* Purple border */
-            background: rgba(98, 0, 238, 0.1); /* Transparent purple fill */
-            box-shadow: 0 0 15px rgba(98, 0, 238, 0.4); /* Glow effect */
-        }
-        .geo-shape:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 0;
-            left: 100px;
-            animation: rotate 20s linear infinite;
-            border-radius: 10px;
-        }
-        .geo-shape:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            top: 50px;
-            left: 0;
-            transform: rotate(45deg);
-            animation: rotate 15s linear infinite reverse;
-            border-radius: 50%;
-        }
-        .geo-shape:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 0;
-            right: 0;
-            border-radius: 50%;
-            animation: rotate 25s linear infinite;
-        }
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+    /* ===== HEADER ===== */
+    header {
+      background: rgba(18, 18, 18, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.3s;
+    }
+    .logo-icon::before,
+    .logo-icon::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 24px;
+      background: var(--accent-light);
+      top: 6px;
+    }
+    .logo-icon::before { left: 5px; }
+    .logo-icon::after { right: 5px; }
+    .logo:hover .logo-icon { transform: rotate(5deg); }
+    .logo-text {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #a0a0a0;
+      font-weight: 500;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--text); }
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--text);
+      cursor: pointer;
+    }
 
-        /* Sections */
-        .section {
-            padding: 5rem 0;
-            background: #1a1a1a; /* Dark background for sections */
-        }
-        .section:nth-child(even) {
-            background: #222222; /* Slightly different dark for alternating sections */
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: #e0e0e0; /* Light text */
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(135deg, #6200ee, #bb86fc); /* Purple gradient underline */
-            border-radius: 2px;
-        }
-        .about-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem auto;
-            font-size: 1.2rem;
-            color: #b0b0b0; /* Muted text */
-            line-height: 1.8;
-            background: linear-gradient(135deg, rgba(98, 0, 238, 0.05) 0%, rgba(187, 134, 252, 0.05) 100%); /* Subtle gradient background */
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 5px solid #6200ee; /* Purple left border */
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .feature {
-            background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%); /* Darker gradient for features */
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-            border: 1px solid rgba(51, 51, 51, 0.5); /* Dark border */
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .feature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #6200ee, #bb86fc); /* Purple top border */
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-        .feature:hover::before {
-            transform: scaleX(1);
-        }
-        .feature:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #6200ee, #bb86fc); /* Purple gradient icon background */
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(98, 0, 238, 0.3);
-            transition: all 0.3s ease;
-        }
-        .feature:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(98, 0, 238, 0.4);
-        }
-        .feature h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #e0e0e0; /* Light text */
-            font-weight: 600;
-        }
-        .feature p {
-            color: #b0b0b0; /* Muted text */
-            line-height: 1.7;
-        }
+    /* ===== HERO ===== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--bg-light) 0%, #222 100%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 70px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='grid' width='10' height='10' patternUnits='userSpaceOnUse'><path d='M 10 0 L 0 0 0 10' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='0.5'/></pattern></defs><rect width='100' height='100' fill='url(%23grid)'/></svg>");
+      opacity: 0.2;
+    }
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #8c9eff, var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .tagline {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      color: #a0a0a0;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .hero-description {
+      font-size: clamp(1rem, 3.5vw, 1.1rem);
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .cta-button {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(98, 0, 238, 0.3);
+      transition: all 0.3s;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(98, 0, 238, 0.4);
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+    .geometric-art {
+      width: 260px;
+      height: 260px;
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+    .geo-shape {
+      position: absolute;
+      border: 2px solid var(--accent);
+      background: rgba(98, 0, 238, 0.1);
+      box-shadow: 0 0 12px rgba(98, 0, 238, 0.3);
+    }
+    .geo-shape:nth-child(1) {
+      width: 90px; height: 90px; top: 0; left: 90px;
+      border-radius: 10px;
+      animation: rotate 20s linear infinite;
+    }
+    .geo-shape:nth-child(2) {
+      width: 55px; height: 55px; top: 45px; left: 0;
+      border-radius: 50%;
+      transform: rotate(45deg);
+      animation: rotate 15s reverse infinite;
+    }
+    .geo-shape:nth-child(3) {
+      width: 75px; height: 75px; bottom: 0; right: 0;
+      border-radius: 50%;
+      animation: rotate 25s infinite;
+    }
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
 
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #2a2a2a; /* Dark background */
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid #3a3a3a;
-        }
-        .form-group {
-            margin-bottom: 2rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #e0e0e0; /* Light text */
-            font-weight: 600;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #555; /* Darker border */
-            border-radius: 10px;
-            font-size: 1rem;
-            background: #3a3a3a; /* Dark input background */
-            color: #e0e0e0; /* Light input text */
-            transition: border-color 0.3s ease;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #6200ee; /* Purple focus border */
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #6200ee, #bb86fc); /* Purple gradient */
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(98, 0, 238, 0.3);
-        }
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(98, 0, 238, 0.4);
-        }
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 5rem 0;
+      background: var(--bg-light);
+    }
+    .section:nth-child(even) {
+      background: #222;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 6vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      color: var(--text);
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border-radius: 2px;
+    }
+    .about-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      color: var(--text-muted);
+      line-height: 1.8;
+      background: rgba(98, 0, 238, 0.05);
+      padding: 1.8rem;
+      border-radius: 15px;
+      border-left: 4px solid var(--accent);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+    .feature {
+      background: linear-gradient(135deg, var(--bg-card), #3a3a3a);
+      padding: 2rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(51, 51, 51, 0.5);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+    .feature:hover::before { transform: scaleX(1); }
+    .feature:hover {
+      transform: translateY(-8px) scale(1.015);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      border-radius: 18px;
+      box-shadow: 0 6px 16px rgba(98, 0, 238, 0.3);
+    }
+    .feature:hover .feature-icon {
+      transform: scale(1.1) rotate(4deg);
+      box-shadow: 0 10px 25px rgba(98, 0, 238, 0.4);
+    }
+    .feature h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .feature p {
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
 
-        /* Footer */
-        footer {
-            background: #1a1a1a; /* Dark footer background */
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        .footer-section h4 {
-            margin-bottom: 1.5rem;
-            color: #e0e0e0; /* Light text */
-            font-weight: 600;
-        }
-        .footer-section p, .footer-section a {
-            color: #a0a0a0; /* Muted text */
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        .footer-section a:hover {
-            color: #e0e0e0; /* Lighter on hover */
-            transform: translateX(5px);
-            transition: all 0.3s ease;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .social-links a {
-            display: inline-block;
-            padding: 0.5rem;
-            background: rgba(255, 255, 255, 0.05); /* Subtle transparent background */
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            color: #bb86fc; /* Purple icons */
-        }
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.1);
-        }
+    /* ===== CONTACT ===== */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid #3a3a3a;
+    }
+    .form-group {
+      margin-bottom: 1.8rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.95rem;
+      border: 2px solid #555;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: #333;
+      color: var(--text);
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(98, 0, 238, 0.3);
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(98, 0, 238, 0.4);
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column; /* Stack links vertically */
-                position: absolute;
-                top: 60px; /* Below header */
-                left: 0;
-                width: 100%;
-                background: rgba(18, 18, 18, 0.98);
-                border-top: 1px solid #333;
-                padding: 1rem 0;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-            }
-            .nav-links.active { /* Class added by JS to show menu */
-                display: flex;
-            }
-            .nav-links li {
-                padding: 0.5rem 0;
-            }
-            .mobile-menu-toggle {
-                display: block;
-            }
-            .geometric-art {
-                width: 200px;
-                height: 200px;
-            }
-            .features {
-                grid-template-columns: 1fr;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .social-links {
-                justify-content: center;
-            }
-        }
+    /* ===== FOOTER ===== */
+    footer {
+      background: #181818;
+      color: var(--text);
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-section h4 {
+      margin-bottom: 1.2rem;
+      color: #e0e0e0;
+      font-weight: 600;
+    }
+    .footer-section p,
+    .footer-section a {
+      color: #a0a0a0;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .footer-section a:hover {
+      color: var(--text);
+      transform: translateX(4px);
+      transition: all 0.3s;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      color: var(--accent-light);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.15);
+    }
 
-        /* Loading Animation */
-        .loading {
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
-    <!-- Google Font for Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+      .hero { padding-top: 80px; height: auto; min-height: 100vh; }
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+        padding: 2rem 0;
+      }
+      .hero-visual { order: -1; }
+      .geometric-art { margin: 0 auto; width: 220px; height: 220px; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(18, 18, 18, 0.98);
+        border-top: 1px solid var(--border);
+        padding: 1.2rem 0;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+      .nav-links.active { display: flex; }
+      .nav-links li { padding: 0.8rem 0; }
+      .nav-links a { display: block; }
+      .mobile-menu-toggle { display: block; }
+      .features { grid-template-columns: 1fr; }
+      .contact-form { padding: 2rem 1.5rem; }
+      .footer-content { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <div class="logo-diagonal"></div>
-                </div>
-                <a href="#home" class="logo-text">Notelle</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <div class="logo-icon"></div>
+          <span class="logo-text">Notelle Tech</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Notelle Tech Industries: The Mzalendo 1.0 Engine</h1>
-                    <div class="tagline">Generating Foundational Knowledge for a Secure Future</div>
-                    <p class="hero-description">
-                        At Notelle Tech Industries, our core innovation is the **Mzalendo 1.0 Engine**, a powerful meta-syntactic symbol manipulation system. It is designed to generate foundational knowledge applicable across diverse fields including **science, technology, healthcare, and agriculture**. This fundamental understanding is then leveraged to build advanced solutions, including **ultra defense systems**, indigenous language preservation, and robust data infrastructure. We utilize AI as a supporting tool where it enhances these processes.
-                    </p>
-                    <a href="#contact" class="cta-button">Explore Our Strategic Solutions</a>
-                </div>
-                <div class="hero-visual">
-                    <div class="geometric-art">
-                        <div class="geo-shape"></div>
-                        <div class="geo-shape"></div>
-                        <div class="geo-shape"></div>
-                    </div>
-                </div>
-            </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Notelle Tech Industries: The Mzalendo 1.0 Engine</h1>
+          <div class="tagline">Generating Foundational Knowledge for a Secure Future</div>
+          <p class="hero-description">
+            At Notelle Tech Industries, our core innovation is the <strong>Mzalendo 1.0 Engine</strong>, a powerful meta-syntactic symbol manipulation system. It generates foundational knowledge for science, technology, healthcare, agriculture, and ultra defense systems — while preserving African indigenous languages from Nyamira, Kenya.
+          </p>
+          <a href="#contact" class="cta-button">Explore Strategic Solutions</a>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="section-title">The Mzalendo 1.0 Engine: Core of Our Innovation</h2>
-            <div class="about-intro">
-                <p>We are an independent African-based technology and innovation company dedicated to architecting advanced solutions for a secure future. From our headquarters in Nyamira, Kenya, our primary focus is the **Mzalendo 1.0 Engine**, which generates foundational knowledge. This knowledge empowers us to revolutionize various sectors, including healthcare, agriculture, and to develop cutting-edge ultra defense systems, alongside preserving indigenous languages and building robust data infrastructure.</p>
-            </div>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🧠</div>
-                    <h3>Meta-Syntactic Knowledge Generation (Mzalendo 1.0)</h3>
-                    <p>Our flagship Mzalendo 1.0 Engine pioneers the generation of foundational mathematical and logical knowledge through advanced symbol manipulation. This core capability underpins all our innovations, providing the deep understanding required for complex problem-solving across all domains.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Ultra Tech Defense Systems</h3>
-                    <p>Leveraging the foundational knowledge from Mzalendo 1.0, we design and deploy advanced, multi-layered security systems and defense technologies that protect digital assets, critical infrastructure, and national sovereignty. This includes cybersecurity and strategic defense architectures.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🗣️</div>
-                    <h3>Indigenous Language Technology</h3>
-                    <p>Pioneering secure voice and text data systems for African indigenous languages, crucial for resilient communication and culturally aware applications, supported by our foundational knowledge.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🏥</div>
-                    <h3>Health Systems Innovation</h3>
-                    <p>Revolutionizing healthcare technology with secure, resilient systems that improve access to quality medical care and support national health security, informed by the Mzalendo 1.0 engine's insights.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🌾</div>
-                    <h3>Agricultural Advancement</h3>
-                    <p>Implementing smart farming solutions with integrated security protocols to boost productivity and ensure food supply chain resilience for national defense, driven by foundational insights.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💾</div>
-                    <h3>Robust Data Infrastructure</h3>
-                    <p>Building secure, encrypted data ecosystems and resilient storage infrastructure that safeguard critical information flow for all our initiatives, including defense and national security.</p>
-                </div>
-            </div>
+        <div class="hero-visual">
+          <div class="geometric-art">
+            <div class="geo-shape"></div>
+            <div class="geo-shape"></div>
+            <div class="geo-shape"></div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Core Pillars of Strategic Innovation</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">⟨⟩</div>
-                    <h3>Software Development</h3>
-                    <p>Custom, secure applications built with resilient architecture and advanced frameworks. From concept to deployment, we engineer software for critical African contexts and global defense standards, including the Mzalendo 1.0 engine itself.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">☁</div>
-                    <h3>Cloud Solutions</h3>
-                    <p>Scalable, secure cloud infrastructure designed for high-performance and operational resilience. We leverage modern cloud platforms for defense-grade data sovereignty and continuity.</p>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Innovation Consulting</h3>
-                    <p>Strategic technology guidance to transform national capabilities. We identify critical opportunities and create roadmaps for digital defense transformation.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Cultural Tech Solutions</h3>
-                    <p>Specialized technology solutions that preserve and promote African cultures, languages, and traditions, integrating them into secure communication and defense frameworks.</p>
-                </div>
-            </div>
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">The Mzalendo 1.0 Engine</h2>
+      <div class="about-intro">
+        <p>
+          We are an independent African technology company headquartered in Nyamira, Kenya. Our mission: architect advanced solutions for national resilience through the Mzalendo 1.0 Engine — a system that generates deep, foundational knowledge to power innovation across critical sectors.
+        </p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🧠</div>
+          <h3>Meta-Syntactic Knowledge</h3>
+          <p>Generates foundational mathematical and logical structures through advanced symbol manipulation — the bedrock of all our innovations.</p>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact" style="background: #1a1a1a;">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-form">
-                <form onsubmit="handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <h3>Ultra Defense Systems</h3>
+          <p>Multi-layered security and defense architectures protecting digital assets, infrastructure, and national sovereignty.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <a href="mailto:mebaelleton94@gmail.com">mebaelleton94@gmail.com</a>
-                    <a href="tel:+254113638639">+254 113 638 639</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Location</h4>
-                    <p>Nyamira, Kenya</p>
-                    <p>East Africa</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/company/notelle-tech" target="_blank" title="LinkedIn">💼</a>
-                        <a href="https://twitter.com/notelletech" target="_blank" title="Twitter">🐦</a>
-                        <a href="https://instagram.com/notelletech" target="_blank" title="Instagram">📸</a>
-                    </div>
-                </div>
-            </div>
-            <p style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #333;">
-                © 2025 Notelle Tech Industries. Architecting a secure future.
-            </p>
+        <div class="feature">
+          <div class="feature-icon">🗣️</div>
+          <h3>Indigenous Language Tech</h3>
+          <p>Secure voice and text systems preserving African languages for resilient, culturally-aware communication.</p>
         </div>
-    </footer>
+        <div class="feature">
+          <div class="feature-icon">🏥</div>
+          <h3>Health Systems</h3>
+          <p>Secure, AI-enhanced healthcare platforms improving access and supporting national health security.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌾</div>
+          <h3>Agricultural Advancement</h3>
+          <p>Smart farming with integrated security to ensure food supply chain resilience and productivity.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💾</div>
+          <h3>Data Infrastructure</h3>
+          <p>Encrypted, sovereign data ecosystems safeguarding critical information for defense and innovation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <!-- Services -->
+  <section class="section" id="services" style="background: #222;">
+    <div class="container">
+      <h2 class="section-title">Core Innovation Pillars</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">⟨⟩</div>
+          <h3>Secure Software</h3>
+          <p>Defense-grade applications built on resilient architecture, including the Mzalendo 1.0 engine itself.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">☁️</div>
+          <h3>Cloud Solutions</h3>
+          <p>High-resilience cloud infrastructure ensuring data sovereignty and operational continuity.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Strategic Consulting</h3>
+          <p>Roadmaps for national digital transformation with a focus on security and self-reliance.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎯</div>
+          <h3>Cultural Integration</h3>
+          <p>Embedding indigenous knowledge and languages into secure tech frameworks for national identity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(18, 18, 18, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
-            } else {
-                header.style.background = 'rgba(18, 18, 18, 0.95)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
-            }
-        });
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required inputmode="text" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required inputmode="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-        // Add subtle parallax effect to hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.geometric-art');
-            if (parallax && scrolled < window.innerHeight) {
-                parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
-        });
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Notelle Tech Industries</h4>
+          <p>Nyamira, Kenya</p>
+          <p>Building Africa’s secure technological future.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <a href="#about">About Mzalendo 1.0</a>
+          <a href="#services">Our Solutions</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter">𝕏</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="GitHub">GH</a>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #333;">
+        © 2025 Notelle Tech Industries. Architecting a secure future.
+      </p>
+    </div>
+  </footer>
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('loading');
-                }
-            });
-        }, observerOptions);
+  <script>
+    // Mobile Menu Toggle
+    document.querySelector('.mobile-menu-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
 
-        // Observe all feature cards
-        document.querySelectorAll('.feature').forEach(feature => {
-            observer.observe(feature);
-        });
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(18, 18, 18, 0.98)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
+      } else {
+        header.style.background = 'rgba(18, 18, 18, 0.95)';
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+      }
+    });
 
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active'); // Use class for toggling display
-        }
-
-        // Form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-
-            // Create mailto link
-            const subject = encodeURIComponent(data.subject);
-            const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
-            const mailtoLink = `mailto:mebaelleton94@gmail.com?subject=${subject}&body=${body}`;
-
-            window.location.href = mailtoLink;
-
-            // Log message instead of alert
-            console.log('Thank you for your message! Your email client will open to send the message.');
-            event.target.reset();
-        }
-
-        // Add loading animation to page
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
-        });
-
-        // Preload animations
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add entrance animations
-            const elements = document.querySelectorAll('.feature, .section-title, .about-intro');
-            elements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'all 0.6s ease';
-                el.style.transitionDelay = `${index * 0.1}s`;
-            });
-
-            // Trigger animations on scroll
-            const animateOnScroll = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-
-            elements.forEach(el => animateOnScroll.observe(el));
-        });
-    </script>
+    // Form Submission (opens email client)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const subject = 'Inquiry from Notelle Tech Website';
+      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+      window.location.href = `mailto:info@notelletech.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      console.log('Email client opened.');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
