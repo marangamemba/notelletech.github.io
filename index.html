@@ -720,7 +720,7 @@
                 <div class="feature loading">
                     <div class="feature-icon">🏥</div>
                     <h3>Health Systems Innovation</h3>
-                    <p>Revolutionizing healthcare technology with secure, resilient systems that improve access to quality medical care and support national health security, informed by the Mzalendo 1.0 engine's insights.</p>
+                    <p>Revolutionizing healthcare technology with secure, resilient systems that implement a <strong>Verified Patient Record (VPR)</strong>. This patient-centered approach ensures data integrity, improves access to quality care, and supports national health security by basing all documentation on **mzalendo 1.0's provably correct logic**.</p>
                 </div>
                 <div class="feature loading">
                     <div class="feature-icon">🌾</div>
@@ -831,6 +831,12 @@
             lastScroll = currentScroll;
         });
 
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
         // Smooth scroll for links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -857,4 +863,34 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions
+        }, observerOptions);
+
+        // Function to handle form submission (placeholder)
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contactForm');
+            const button = form.querySelector('.submit-btn');
+            button.textContent = 'Sending...';
+            button.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                alert('Thank you for your message! We will be in touch shortly.');
+                button.textContent = 'Message Sent!';
+                button.style.backgroundColor = '#4CAF50'; 
+                button.disabled = false;
+                form.reset();
+                setTimeout(() => {
+                    button.textContent = 'Send Message';
+                    button.style.backgroundColor = ''; 
+                }, 3000);
+            }, 1500);
+        }
+
+        // Apply observer to features for fade-in effect
+        document.querySelectorAll('.feature').forEach(feature => {
+            observer.observe(feature);
+        });
+    </script>
+</body>
+</html>
