@@ -3,99 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notelle Tech Industries – Mzalendo 1.0</title>
-    <meta name="description" content="Notelle Tech Industries builds Mzalendo 1.0 — the world’s first general-purpose formal verification engine that mathematically proves critical systems are safe.">
+    <title>Notelle Tech Industries — Mzalendo 1.0</title>
+    <meta name="description" content="Mzalendo 1.0 — Universal formal verification engine proving safety with mathematics. Healthcare • Robotics • Aerospace • Defense • AI. Built in Kenya.">
     
-    <!-- Logo & Favicon -->
-    <link rel="icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/logo-favicon.png">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/logo-favicon.png">
+    <!-- N Logo -->
+    <link rel="icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/N-favicon.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/N-favicon.png">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Notelle Tech Industries – Mzalendo 1.0">
-    <meta property="og:description" content="We prove safety with mathematics, not probabilities. Healthcare · Robotics · Defense.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/NotelleTech/.github/main/notelle-og.jpg">
+    <meta property="og:title" content="Notelle Tech Industries — Mzalendo 1.0">
+    <meta property="og:description" content="One engine. Mathematical proof of safety.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/NotelleTech/.github/main/mzalendo-og-wide.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        :root{--p:#6200ee;--pl:#bb86fc;--bg:#0a0a0a;--card:#161616;--text:#e8e8e8;--muted:#888;--border:#2a2a2a}
+        :root{--p:#6200ee;--pl:#bb86fc;--bg:#0a0a0a;--text:#eaeaea;--muted:#999}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-        .container{max-width:1200px;margin:auto;padding:0 2rem}
-        header{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.98);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid var(--border);padding:1rem 0}
-        .logo-img{height:50px;width:auto}
-        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 1rem 4rem}
-        .hero h1{font-size:clamp(2.8rem,8vw,5rem);font-weight:800;margin:1rem 0}
-        .catchline{font-size:1.7rem;font-weight:600;color:var(--pl);margin:1.5rem 0 2rem;letter-spacing:0.5px}
-        .hero p{max-width:800px;margin:1rem auto;font-size:1.css1.18rem;color:var(--muted)}
-        .cta{background:linear-gradient(135deg,var(--p),var(--pl));color:white;padding:1.2rem 3.5rem;border-radius:60px;font-weight:700;font-size:1.2rem;text-decoration:none;display:inline-block;margin:2rem 0;box-shadow:0 10px 30px rgba(98,0,238,0.5);transition:0.3s}
-        .cta:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(98,0,238,0.7)}
-        .section{padding:7rem 0;text-align:center}
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;margin-top:4rem}
-        .card{background:var(--card);padding:2.8rem;border-radius:20px;border:1px solid var(--border);transition:0.4s}
-        .card:hover{transform:translateY(-15px);box-shadow:0 25px 50px rgba(0,0,0,0.6)}
-        .card h3{color:var(--pl);font-size:1.45rem;margin-bottom:1rem}
-        .contact{background:var(--card);padding:4.5rem;border-radius:28px;max-width:750px;margin:5rem auto;box-shadow:0 25px 60px rgba(0,0,0,0.7)}
-        .phone{font-size:2.4rem;font-weight:800;margin:2rem 0;letter-spacing:1px}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+        .container{max-width:1300px;margin:auto;padding:0 2rem}
+        header{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.98);backdrop-filter:blur(12px);z-index:1000;padding:1rem 0;border-bottom:1px solid #222}
+        .logo{height:56px}
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative}
+        .hero h1{font-size:clamp(3.2rem,9vw,6.5rem);font-weight:800;z-index:2}
+        .tag{font-size:2.1rem;font-weight:700;color:var(--pl);margin:1.5rem 0 2rem;z-index:2}
+        .hero p{max-width:900px;font-size:1.2rem;color:var(--muted);z-index:2}
+        .cta{background:linear-gradient(135deg,var(--p),var(--pl));color:#fff;padding:1.4rem 4rem;border-radius:60px;font-weight:700;font-size:1.3rem;text-decoration:none;display:inline-block;margin:2.5rem 0;box-shadow:0 15px 40px rgba(98,0,238,0.5);transition:.3s;z-index:2}
+        .cta:hover{transform:translateY(-6px);box-shadow:0 25px 50px rgba(98,0,238,0.7)}
+
+        /* Floating Geometric Illusions */
+        .geo-bg{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+        .geo{float:left;position:absolute;border:2px solid rgba(187,134,252,0.4);background:rgba(98,0,238,0.05);animation:float 20s infinite linear}
+        .geo:nth-child(1){width:180px;height:180px;top:10%;left:10%;border-radius:50%;animation-duration:24s}
+        .geo:nth-child(2){width:120px;height:120px;top:60%;right:15%;border-radius:20px;animation-duration:18s;animation-delay:-6s}
+        .geo:nth-child(3){width:250px;height:250px;bottom:15%;left:5%;animation-duration:30s;animation-delay:-12s}
+        .geo:nth-child(4){width:90px;height:90px;top:30%;right:8%;border-radius:50%;animation-duration:15s;animation-delay:-9s}
+        .geo:nth-child(5){width:200px;height:200px;top:50%;left:50%;transform:translate(-50%,-50%);animation-duration:28s;animation-delay:-15s}
+        @keyframes float{0%{transform:translate(0,0) rotate(0deg)}100%{transform:translate(100px,-100px) rotate(360deg)}}
+
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;margin-top:5rem}
+        .card{background:rgba(23,23,23,0.9);padding:2.8rem;border:1px solid #222;border-radius:22px;transition:.4s;backdrop-filter:blur(6px)}
+        .card:hover{transform:translateY(-15px);box-shadow:0 30px 60px rgba(0,0,0,0.7)}
+        .card h3{color:var(--pl);font-size:1.5rem;margin-bottom:1rem}
+        .contact{background:rgba(23,23,23,0.95);padding:5rem;border-radius:32px;max-width:800px;margin:6rem auto;box-shadow:0 35px 80px rgba(0,0,0,0.8);backdrop-filter:blur(10px)}
+        .phone{font-size:2.9rem;font-weight:800;margin:2rem 0;letter-spacing:1px}
         .phone a{color:var(--pl);text-decoration:none}
-        .wa{color:#25D366;font-weight:700}
-        footer{padding:3rem 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
+        .wa{color:#25D366;font-weight:700;font-size:1.5rem}
+        footer{padding:3rem 0;color:#555;text-align:center}
     </style>
 </head>
 <body>
 
 <header>
     <div class="container">
-        <img src="https://raw.githubusercontent.com/NotelleTech/.github/main/notelle-logo-white.png" alt="Notelle Tech Industries" class="logo-img">
+        <img src="https://raw.githubusercontent.com/NotelleTech/.github/main/N-logo-white.png" alt="Notelle Tech Industries" class="logo">
     </div>
 </header>
 
 <section class="hero">
+    <div class="geo-bg">
+        <div class="geo"></div><div class="geo"></div><div class="geo"></div><div class="geo"></div><div class="geo"></div>
+    </div>
     <div class="container">
         <h1>Notelle Tech Industries</h1>
-        <div class="catchline">We prove safety with mathematics,<br>not probabilities.</div>
-        <p>Mzalendo 1.0 is the world’s first general-purpose formal verification engine that mathematically guarantees correctness in healthcare, robotics, aerospace, and defense systems.</p>
-        <p>Deployed today in Kenyan hospitals · Zero hallucinations · Open-core · Built in Nyamira, Kenya.</p>
-        <a href="#contact" class="cta">Request Technical Briefing</a>
-        <div style="margin-top:2.5rem">
-            <a href="https://github.com/NotelleTech/Mzalendo-Core" target="_blank">
-                <img src="https://img.shields.io/github/stars/NotelleTech/Mzalendo-Core?style=social">
-            </a>
+        <div class="tag">One engine. Mathematical proof of safety.</div>
+        <p>Mzalendo 1.0 is the world’s first universal formal verification engine — proving correctness in healthcare, robotics, aerospace, defense, and all high-risk AI.</p>
+        <p>Already live in Kenyan hospitals • 2025</p>
+        <a href="#contact" class="cta">Request Live Demo</a>
+        <div style="margin-top:2rem">
+            <img src="https://img.shields.io/github/stars/NotelleTech/Mzalendo-Core?style=social">
         </div>
     </div>
 </section>
 
-<section class="section">
+<section style="background:#111;padding:8rem 0">
     <div class="container">
-        <h2 style="font-size:2.6rem;color:var(--pl);margin-bottom:4rem">Current Domains</h2>
+        <h2 style="font-size:2.8rem;color:var(--pl);margin-bottom:5rem;text-align:center">Universal Applications</h2>
         <div class="grid">
-            <div class="card"><h3>Clinical Decision Verification</h3><p>Sepsis-6, insulin infusion, ventilator weaning — live in Kenyan hospitals with printed proof certificates.</p></div>
-            <div class="card"><h3>Surgical & Industrial Robotics</h3><p><p>Mathematical guarantee that robot never enters forbidden state.</p></div>
-            <div class="card"><h3>Defense & Aerospace</h3><p>Drone swarms, missile guidance, satellite control — same core engine.</p></div>
-            <div class="card"><h3>Future-Proof Safety Layer</h3><p>Will become the mandatory verification layer for all high-risk AI systems worldwide.</p></div>
+            <div class="card"><h3>Healthcare</h3><p>Sepsis-6, insulin infusion, ventilator weaning — live in Kenyan hospitals with proof certificates</p></div>
+            <div class="card"><h3>Surgical & Industrial Robotics</h3><p>Guarantees robot never violates safety envelope</p></div>
+            <div class="card"><h3>Autonomous Vehicles & Drones</h3><p>Level-5 autonomy, drone swarms — provable no-collision invariants</p></div>
+            <div class="card"><h3>Aerospace & Defense</h3><p>Missile guidance, satellite control, reactor safety</p></div>
+            <div class="card"><h3>Cyber-Physical Systems</h3><p>Power grids, chemical plants — prevents cascading failures</p></div>
+            <div class="card"><h3>High-Risk AI Governance</h3><p>Future mandatory verification layer for AGI (EU AI Act, FDA, etc.)</p></div>
         </div>
     </div>
 </section>
 
-<section class="section" id="contact">
+<section id="contact">
     <div class="container">
         <div class="contact">
-            <h2 style="color:var(--pl);font-size:2.4rem">Notelle Tech Industries</h2>
-            <p style="font-size:1.3rem;margin:1rem 0">Nyamira, Kenya</p>
-            <div class="phone">
-                <a href="tel:+254113638639">+254 113 638 639</a>
-            </div>
-            <p style="margin:2rem 0;font-size:1.2rem">
-                <a href="https://wa.me/254113638639" target="_blank" class="wa">WhatsApp</a> · Call for live demo or partnership
-            </p>
+            <h2 style="color:var(--pl);font-size:2.6rem">Notelle Tech Industries</h2>
+            <p>Nyamira, Kenya</p>
+            <div class="phone"><a href="tel:+254113638639">+254 113 638 639</a></div>
+            <p><a href="https://wa.me/254113638639" target="_blank" class="wa">WhatsApp</a> for instant live demo</p>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="container">
-        <p>© 2025 Notelle Tech Industries. Mzalendo 1.0 — Provable Safety from Africa.</p>
-    </div>
+    © 2025 Notelle Tech Industries — Mzalendo 1.0 — Built in Kenya
 </footer>
 
 </body>
