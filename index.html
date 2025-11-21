@@ -3,896 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notelle Tech Industries - Mzalendo 1.0 | African Power Core</title>
-    <meta name="description" content="African technology company pioneering the Mzalendo 1.0 African Power Core, a formal verification engine guaranteeing correctness across defense, healthcare, and infrastructure.">
-    <meta name="keywords" content="African technology, Mzalendo 1.0, Formal Verification, Bison Core, Temporal Logic, African Power Core, cybersecurity, Kenya">
+    <title>Mzalendo 1.0 – Provably Correct Clinical Decision Verification Engine</title>
+    <meta name="description" content="Formal verification engine using intuitionistic logic, higher-order logic, LTL, and non-linear dynamics to mathematically prove clinical decisions are safe. Zero hallucinations. Already deployed in Kenyan hospitals.">
+    <meta name="keywords" content="Mzalendo 1.0, formal verification, clinical decision support, healthcare AI safety, temporal logic, Kenya health tech">
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231a1a1a'/><text x='50%' y='55%' font-size='40' text-anchor='middle' fill='%23bb86fc' font-family='Inter, sans-serif' dy='.3em' font-weight='700'>N</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <!-- Favicon & Apple Touch Icon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/mzalendo-favicon.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/mzalendo-favicon.png">
+
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:title" content="Mzalendo 1.0 – Provably Correct Clinical Decision Verification">
+    <meta property="og:description" content="Formal verification engine using IL + HOL + LTL + non-linear dynamics. Zero hallucinations. Already verifying sepsis and insulin protocols in Kenya.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/NotelleTech/.github/main/mzalendo-og.png">
+    <meta property="og:url" content="https://notelletech.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #6200ee;
-            --primary-light: #bb86fc;
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --bg-card-hover: #2a2a2a;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --text-muted: #707070;
-            --border: #333;
-            --shadow: rgba(0, 0, 0, 0.3);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-dark);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.25rem;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-            transition: var(--transition);
-            box-shadow: 0 2px 10px var(--shadow);
-        }
-
-        header.scrolled {
-            background: rgba(18, 18, 18, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: translateY(-2px);
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .logo:hover .logo-icon {
-            transform: rotate(5deg);
-            box-shadow: 0 0 20px rgba(98, 0, 238, 0.5);
-        }
-
-        .logo-icon::before,
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            height: 28px;
-            background: var(--primary-light);
-        }
-
-        .logo-icon::before { left: 8px; }
-        .logo-icon::after { right: 8px; }
-
-        .logo-diagonal {
-            position: absolute;
-            width: 20px;
-            height: 4px;
-            background: var(--primary);
-            transform: rotate(45deg);
-        }
-
-        .logo-text {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-primary);
-            padding: 0.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #222 100%);
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(98,0,238,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #8c9eff, #bb86fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-        }
-        
-        /* Removed specific styling for strong tags as LTL symbols are no longer in the headline */
-
-        .tagline {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-            font-weight: 400;
-            text-transform: uppercase;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(98, 0, 238, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(98, 0, 238, 0.5);
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .geometric-art {
-            width: 300px;
-            height: 300px;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-        }
-
-        .geo-shape {
-            position: absolute;
-            border: 2px solid var(--primary);
-            background: rgba(98, 0, 238, 0.1);
-            box-shadow: 0 0 20px rgba(98, 0, 238, 0.3);
-            transition: var(--transition);
-        }
-
-        .geo-shape:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 0;
-            left: 100px;
-            animation: rotate 20s linear infinite;
-            border-radius: 10px;
-        }
-
-        .geo-shape:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            top: 50px;
-            left: 0;
-            animation: rotate 15s linear infinite reverse;
-            border-radius: 50%;
-        }
-
-        .geo-shape:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 0;
-            right: 0;
-            border-radius: 50%;
-            animation: rotate 25s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Sections */
-        .section {
-            padding: 5rem 0;
-            background: var(--bg-dark);
-        }
-
-        .section:nth-child(even) {
-            background: #1a1a1a;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: var(--text-primary);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 2px;
-        }
-
-        .about-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            background: linear-gradient(135deg, rgba(98, 0, 238, 0.08), rgba(187, 134, 252, 0.08));
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid var(--primary);
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px var(--shadow);
-            border: 1px solid var(--border);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .feature:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            background: var(--bg-card-hover);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(98, 0, 238, 0.3);
-            transition: var(--transition);
-        }
-
-        .feature:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(98, 0, 238, 0.5);
-        }
-
-        .feature h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .feature p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--bg-card);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            font-size: 1rem;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            transition: border-color 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(98, 0, 238, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(98, 0, 238, 0.3);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(98, 0, 238, 0.5);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-dark);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .footer-section a:hover {
-            color: var(--text-primary);
-            transform: translateX(5px);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(98, 0, 238, 0.1);
-            border-radius: 50%;
-            transition: var(--transition);
-            color: var(--primary-light);
-        }
-
-        .social-links a:hover {
-            background: rgba(98, 0, 238, 0.2);
-            transform: scale(1.1);
-        }
-
-        /* Utility Classes */
-        .loading {
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(18, 18, 18, 0.98);
-                border-top: 1px solid var(--border);
-                padding: 1rem 0;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-                gap: 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                padding: 0.75rem 0;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .geometric-art {
-                width: 200px;
-                height: 200px;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
-
-            .contact-form {
-                padding: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero {
-                padding-top: 60px;
-            }
-
-            .feature {
-                padding: 2rem;
-            }
-
-            .feature-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-        }
+        :root{--p:#6200ee;--pl:#bb86fc;--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--muted:#a0a0a0;--border:#333}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+        .container{max-width:1100px;margin:auto;padding:0 1.5rem}
+        header{position:fixed;top:0;width:100%;background:rgba(18,18,18,0.95);backdrop-filter:blur(10px);z-index:1000;border-bottom:1px solid var(--border)}
+        nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+        .logo{font-weight:700;font-size:1.5rem;color:var(--text)}
+        .logo span{color:var(--pl)}
+        .hero{min-height:100vh;display:flex;align-items:center;padding-top:90px;background:var(--bg);text-align:center}
+        .hero h1{font-size:clamp(2.4rem,7vw,4.2rem);margin-bottom:1rem;line-height:1.1}
+        .hero p{font-size:1.15rem;color:var(--muted);max-width:900px;margin:1.5rem auto}
+        .cta{background:linear-gradient(135deg,var(--p),var(--pl));color:white;padding:1rem 2.8rem;border:none;border-radius:50px;font-weight:600;cursor:pointer;display:inline-block;margin:1.5rem 0;text-decoration:none;box-shadow:0 6px 20px rgba(98,0,238,0.4);transition:0.3s}
+        .cta:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(98,0,238,0.6)}
+        .section{padding:6rem 0}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+        .card{background:var(--card);padding:2.2rem;border-radius:16px;border:1px solid var(--border);transition:0.3s}
+        .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.5)}
+        .card h3{font-size:1.35rem;margin-bottom:0.9rem;color:var(--pl)}
+        .contact{background:var(--card);padding:3.5rem;border-radius:20px;max-width:650px;margin:4rem auto;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,0.4)}
+        .phone{font-size:2rem;font-weight:700;margin:1.5rem 0}
+        .phone a{color:var(--pl);text-decoration:none}
+        .wa{color:#25D366}
+        .pilot{color:#777;font-size:0.95rem;margin-top:2rem}
+        footer{text-align:center;padding:3rem 0;border-top:1px solid var(--border);color:var(--muted);font-size:0.9rem}
+        @media(max-width:768px){.hero{text-align:center;padding-top:100px}}
     </style>
 </head>
 <body>
-    <header id="header">
-        <nav class="container">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <div class="logo-diagonal"></div>
-                </div>
-                <span class="logo-text">Notelle Tech</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
-                ☰
-            </button>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Mzalendo <span>1.0</span></div>
         </nav>
-    </header>
+    </div>
+</header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Mzalendo 1.0: THE AFRICAN POWER CORE.</h1>
-                    <div class="tagline">Mathematical Certainty for a Secure Future</div>
-                    <p class="hero-description">
-                        At Notelle Tech Industries, our core innovation is the **Mzalendo 1.0 African Power Core**, powered by the revolutionary **Bison Core**—a formal verification system using temporal logic and theorem proving. It generates **provably correct foundational knowledge** across **defense systems, healthcare, agriculture, and language**, providing mathematical guarantees where only guesswork existed before.
-                    </p>
-                    <a href="#contact" class="cta-button">Explore Our Strategic Solutions</a>
-                </div>
-                <div class="hero-visual">
-                    <div class="geometric-art">
-                        <div class="geo-shape"></div>
-                        <div class="geo-shape"></div>
-                        <div class="geo-shape"></div>
-                    </div>
-                </div>
+<section class="hero">
+    <div class="container">
+        <h1>Mzalendo 1.0<br>Provably Correct Clinical Decision Verification</h1>
+        <p>Formal verification engine that mathematically proves multidisciplinary clinical decisions are safe using intuitionistic logic, higher-order logic, linear temporal logic, and non-linear dynamical systems modeling.</p>
+        <p>Zero reliance on probabilistic AI · Auditable proof certificates · Already deployed on sepsis-6, insulin infusion, and ventilator weaning protocols in Kenyan hospitals.</p>
+        <a href="#contact" class="cta">Request Technical Demo</a>
+        <div style="margin-top:2rem;">
+            <a href="https://github.com/NotelleTech/Mzalendo-Core" target="_blank">
+                <img src="https://img.shields.io/github/stars/NotelleTech/Mzalendo-Core?style=social" alt="GitHub stars">
+            </a>
+            <img src="https://img.shields.io/github/forks/NotelleTech/Mzalendo-Core?style=social" alt="GitHub forks">
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 style="text-align:center;font-size:2.4rem;margin-bottom:3rem;color:var(--pl)">Core Mathematical Guarantees</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Intuitionistic Logic (IL)</h3>
+                <p>Constructive proofs only — every diagnostic claim requires explicit evidence. Eliminates “absence of evidence” errors.</p>
+            </div>
+            <div class="card">
+                <h3>Higher-Order Logic (HOL)</h3>
+                <p>Quantification over predicates and functions. Verifies polypharmacy, genotype-based dosing, and complex ontologies (SNOMED CT, ICD-11).</p>
+            </div>
+            <div class="card">
+                <h3>Linear Temporal Logic + Non-Linear Extensions</h3>
+                <p>LTL guarantees temporal invariants. Hybrid solvers incorporate Lorenz-type attractors to predict bifurcations in sepsis and organ-failure cascades.</p>
+            </div>
+            <div class="card">
+                <h3>Sequent Calculus + SMT + Model Checking</h3>
+                <p>Proof trees (Lean 4) · Z3/CVC5 for constraints · UPPAAL for exhaustive temporal verification. Every decision outputs a tamper-proof certificate.</p>
             </div>
         </div>
-    </section>
-
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="section-title">The Mzalendo 1.0 Engine: Core of Our Innovation</h2>
-            <div class="about-intro">
-                <p>We are an independent African-based technology and innovation company dedicated to architecting advanced solutions for a secure future. From our headquarters in Nyamira, Kenya, our primary focus is the **Mzalendo 1.0 Engine**—powered by the **Bison Core**, a formal verification framework using Linear Temporal Logic (LTL) and Higher-Order Logic (HOL). This generates mathematically provable foundational knowledge that empowers us to revolutionize healthcare, agriculture, defense systems, indigenous language preservation, and data infrastructure with guaranteed correctness.</p>
-            </div>
-            <div class="features">
-                <div class="feature loading">
-                    <div class="feature-icon">🧠</div>
-                    <h3>Mzalendo 1.0 Engine with Bison Core</h3>
-                    <p>Our flagship engine combines meta-syntactic knowledge generation with the Bison Core—a formal verification system using LTL/TLA+ theorem proving. This ensures mathematically proven correctness in all outputs, providing unmatched reliability for safety-critical applications across healthcare, defense, and infrastructure.</p>
-                </div>
-                <div class="feature loading">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Ultra Tech Defense Systems</h3>
-                    <p>Leveraging foundational knowledge from Mzalendo 1.0, we design and deploy advanced, multi-layered security systems and defense technologies that protect digital assets, critical infrastructure, and national sovereignty.</p>
-                </div>
-                <div class="feature loading">
-                    <div class="feature-icon">🗣️</div>
-                    <h3>Indigenous Language Technology</h3>
-                    <p>Pioneering secure voice and text data systems for African indigenous languages, crucial for resilient communication and culturally aware applications, supported by our foundational knowledge.</p>
-                </div>
-                <div class="feature loading">
-                    <div class="feature-icon">🏥</div>
-                    <h3>Health Systems Innovation</h3>
-                    <p>Revolutionizing healthcare technology with the **Dual Verified Clinical Core**. This system implements the **Verified Patient Record (VPR)** (patient-owned data) and **Verified Procedural Compliance (VPC)** (practitioner guidance), ensuring safety by design based on **mzalendo 1.0's provably correct logic**.</p>
-                </div>
-                <div class="feature loading">
-                    <div class="feature-icon">🌾</div>
-                    <h3>Agricultural Advancement</h3>
-                    <p>Implementing smart farming solutions with integrated security protocols to boost productivity and ensure food supply chain resilience, driven by foundational insights.</p>
-                </div>
-                <div class="feature loading">
-                    <div class="feature-icon">💾</div>
-                    <h3>Robust Data Infrastructure</h3>
-                    <p>Building secure, encrypted data ecosystems and resilient storage infrastructure that safeguard critical information flow for all our initiatives, including defense and national security.</p>
-                </div>
-            </div>
+        <div style="text-align:center;margin-top:3rem;">
+            <a href="/assets/mzalendo-technical-paper-nov2025.pdf" class="cta" download>
+                Download Full Technical Paper (PDF)
+            </a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section" id="services">
-        <div class="container">
-            <h2 class="section-title">Core Pillars of Strategic Innovation</h2>
-            <div class="features">
-                <div class="feature loading">
-                    <div class="feature-icon">⟨⟩</div>
-                    <h3>Software Development</h3>
-                    <p>Custom, secure applications built with resilient architecture and advanced frameworks. From concept to deployment, we engineer software for critical African contexts and global defense standards, including the Mzalendo 1.0 engine itself.</p>
-                </div>
-                <div class="feature loading">
-                    <div class="feature-icon">☁</div>
-                    <h3>Cloud Solutions</h3>
-                    <p>Scalable, secure cloud infrastructure designed for high-performance and operational resilience. We leverage modern cloud platforms for defense-grade data sovereignty and continuity.</p>
-                </div>
-                <div class="feature loading">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Innovation Consulting</h3>
-                    <p>Strategic technology guidance to transform national capabilities. We identify critical opportunities and create roadmaps for digital defense transformation.</p>
-                </div>
-                <div class="feature loading">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Cultural Tech Solutions</h3>
-                    <p>Specialized technology solutions that preserve and promote African cultures, languages, and traditions, integrating them into secure communication and defense frameworks.</p>
-                </div>
+<section class="section" style="background:#181818">
+    <div class="container">
+        <h2 style="text-align:center;font-size:2.4rem;margin-bottom:3rem;color:var(--pl)">Currently Verified Protocols</h2>
+        <div class="grid">
+            <div class="card"><h3>Sepsis-6 Bundle</h3><p>Proves antibiotics < 60 min when qSOFA ≥ 2 or lactate > 2 mmol/L</p></div>
+            <div class="card"><h3>Continuous Insulin Infusion</h3><p>G(glucose < 70 → X ¬infusion) with dynamic rate bounds</p></div>
+            <div class="card"><h3>Ventilator Weaning</h3><p>Extubation readiness via quantified respiratory parameters</p></div>
+            <div class="card"><h3>Warfarin & Potassium Replacement</h3><p>Q4 2025 – In active development</p></div>
+        </div>
+    </div>
+</section>
+
+<div class="pilot">
+    Deployed in pilot sites: Nyamira County Referral Hospital · Kisii Teaching & Referral Hospital · November 2025
+</div>
+
+<section class="section" id="contact">
+    <div class="container">
+        <div class="contact">
+            <h2 style="color:var(--pl);margin-bottom:1rem">Contact for Technical Integration</h2>
+            <div class="phone">
+                <a href="tel:+254113638639">+254 113 638 639</a>
+                <span> (Call)</span> · 
+                <a href="https://wa.me/254113638639" target="_blank" class="wa">WhatsApp</a>
             </div>
+            <p style="margin:1.5rem 0;color:var(--muted)">Call or WhatsApp for live demonstration, API documentation, or hospital pilot</p>
+            <p style="font-size:0.9rem;color:var(--muted)">Notelle Tech Industries · Nyamira, Kenya · November 2025</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+<footer>
+    <div class="container">
+        <p>© 2025 Notelle Tech Industries. Mzalendo 1.0 is open-core · FHIR-compatible · Regulated-software ready</p>
+    </div>
+</footer>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <a href="#about">About Us</a>
-                    <a href="#services">Services</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Nyamira, Kenya</p>
-                    <p>info@notelletech.com</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="GitHub">⚡</a>
-                    </div>
-                </div>
-            </div>
-            <p style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);">
-                © 2025 Notelle Tech Industries. Architecting a secure future.
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Header scroll effect
-        const header = document.getElementById('header');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Smooth scroll for links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Close mobile menu if open
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Function to handle form submission (placeholder)
-        function handleSubmit(event) {
-            event.preventDefault();
-            const form = document.getElementById('contactForm');
-            const button = form.querySelector('.submit-btn');
-            button.textContent = 'Sending...';
-            button.disabled = true;
-
-            // Simulate form submission
-            setTimeout(() => {
-                alert('Thank you for your message! We will be in touch shortly.');
-                button.textContent = 'Message Sent!';
-                button.style.backgroundColor = '#4CAF50'; 
-                button.disabled = false;
-                form.reset();
-                setTimeout(() => {
-                    button.textContent = 'Send Message';
-                    button.style.backgroundColor = ''; 
-                }, 3000);
-            }, 1500);
-        }
-
-        // Apply observer to features for fade-in effect
-        document.querySelectorAll('.feature').forEach(feature => {
-            observer.observe(feature);
-        });
-    </script>
 </body>
 </html>
