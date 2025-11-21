@@ -3,138 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mzalendo 1.0 – Provably Correct Clinical Decision Verification Engine</title>
-    <meta name="description" content="Formal verification engine using intuitionistic logic, higher-order logic, LTL, and non-linear dynamics to mathematically prove clinical decisions are safe. Zero hallucinations. Already deployed in Kenyan hospitals.">
-    <meta name="keywords" content="Mzalendo 1.0, formal verification, clinical decision support, healthcare AI safety, temporal logic, Kenya health tech">
+    <title>Notelle Tech Industries – Mzalendo 1.0</title>
+    <meta name="description" content="Notelle Tech Industries builds Mzalendo 1.0 — the world’s first general-purpose formal verification engine that mathematically proves critical systems are safe.">
     
-    <!-- Favicon & Apple Touch Icon -->
-    <link rel="icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/mzalendo-favicon.png">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/mzalendo-favicon.png">
-
-    <!-- Open Graph / Twitter Cards -->
-    <meta property="og:title" content="Mzalendo 1.0 – Provably Correct Clinical Decision Verification">
-    <meta property="og:description" content="Formal verification engine using IL + HOL + LTL + non-linear dynamics. Zero hallucinations. Already verifying sepsis and insulin protocols in Kenya.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/NotelleTech/.github/main/mzalendo-og.png">
-    <meta property="og:url" content="https://notelletech.github.io">
+    <!-- Logo & Favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/logo-favicon.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/logo-favicon.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Notelle Tech Industries – Mzalendo 1.0">
+    <meta property="og:description" content="We prove safety with mathematics, not probabilities. Healthcare · Robotics · Defense.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/NotelleTech/.github/main/notelle-og.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root{--p:#6200ee;--pl:#bb86fc;--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--muted:#a0a0a0;--border:#333}
+        :root{--p:#6200ee;--pl:#bb86fc;--bg:#0a0a0a;--card:#161616;--text:#e8e8e8;--muted:#888;--border:#2a2a2a}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-        .container{max-width:1100px;margin:auto;padding:0 1.5rem}
-        header{position:fixed;top:0;width:100%;background:rgba(18,18,18,0.95);backdrop-filter:blur(10px);z-index:1000;border-bottom:1px solid var(--border)}
-        nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-        .logo{font-weight:700;font-size:1.5rem;color:var(--text)}
-        .logo span{color:var(--pl)}
-        .hero{min-height:100vh;display:flex;align-items:center;padding-top:90px;background:var(--bg);text-align:center}
-        .hero h1{font-size:clamp(2.4rem,7vw,4.2rem);margin-bottom:1rem;line-height:1.1}
-        .hero p{font-size:1.15rem;color:var(--muted);max-width:900px;margin:1.5rem auto}
-        .cta{background:linear-gradient(135deg,var(--p),var(--pl));color:white;padding:1rem 2.8rem;border:none;border-radius:50px;font-weight:600;cursor:pointer;display:inline-block;margin:1.5rem 0;text-decoration:none;box-shadow:0 6px 20px rgba(98,0,238,0.4);transition:0.3s}
-        .cta:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(98,0,238,0.6)}
-        .section{padding:6rem 0}
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
-        .card{background:var(--card);padding:2.2rem;border-radius:16px;border:1px solid var(--border);transition:0.3s}
-        .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.5)}
-        .card h3{font-size:1.35rem;margin-bottom:0.9rem;color:var(--pl)}
-        .contact{background:var(--card);padding:3.5rem;border-radius:20px;max-width:650px;margin:4rem auto;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,0.4)}
-        .phone{font-size:2rem;font-weight:700;margin:1.5rem 0}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+        .container{max-width:1200px;margin:auto;padding:0 2rem}
+        header{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.98);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid var(--border);padding:1rem 0}
+        .logo-img{height:50px;width:auto}
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 1rem 4rem}
+        .hero h1{font-size:clamp(2.8rem,8vw,5rem);font-weight:800;margin:1rem 0}
+        .catchline{font-size:1.7rem;font-weight:600;color:var(--pl);margin:1.5rem 0 2rem;letter-spacing:0.5px}
+        .hero p{max-width:800px;margin:1rem auto;font-size:1.css1.18rem;color:var(--muted)}
+        .cta{background:linear-gradient(135deg,var(--p),var(--pl));color:white;padding:1.2rem 3.5rem;border-radius:60px;font-weight:700;font-size:1.2rem;text-decoration:none;display:inline-block;margin:2rem 0;box-shadow:0 10px 30px rgba(98,0,238,0.5);transition:0.3s}
+        .cta:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(98,0,238,0.7)}
+        .section{padding:7rem 0;text-align:center}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;margin-top:4rem}
+        .card{background:var(--card);padding:2.8rem;border-radius:20px;border:1px solid var(--border);transition:0.4s}
+        .card:hover{transform:translateY(-15px);box-shadow:0 25px 50px rgba(0,0,0,0.6)}
+        .card h3{color:var(--pl);font-size:1.45rem;margin-bottom:1rem}
+        .contact{background:var(--card);padding:4.5rem;border-radius:28px;max-width:750px;margin:5rem auto;box-shadow:0 25px 60px rgba(0,0,0,0.7)}
+        .phone{font-size:2.4rem;font-weight:800;margin:2rem 0;letter-spacing:1px}
         .phone a{color:var(--pl);text-decoration:none}
-        .wa{color:#25D366}
-        .pilot{color:#777;font-size:0.95rem;margin-top:2rem}
-        footer{text-align:center;padding:3rem 0;border-top:1px solid var(--border);color:var(--muted);font-size:0.9rem}
-        @media(max-width:768px){.hero{text-align:center;padding-top:100px}}
+        .wa{color:#25D366;font-weight:700}
+        footer{padding:3rem 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
     </style>
 </head>
 <body>
 
 <header>
     <div class="container">
-        <nav>
-            <div class="logo">Mzalendo <span>1.0</span></div>
-        </nav>
+        <img src="https://raw.githubusercontent.com/NotelleTech/.github/main/notelle-logo-white.png" alt="Notelle Tech Industries" class="logo-img">
     </div>
 </header>
 
 <section class="hero">
     <div class="container">
-        <h1>Mzalendo 1.0<br>Provably Correct Clinical Decision Verification</h1>
-        <p>Formal verification engine that mathematically proves multidisciplinary clinical decisions are safe using intuitionistic logic, higher-order logic, linear temporal logic, and non-linear dynamical systems modeling.</p>
-        <p>Zero reliance on probabilistic AI · Auditable proof certificates · Already deployed on sepsis-6, insulin infusion, and ventilator weaning protocols in Kenyan hospitals.</p>
-        <a href="#contact" class="cta">Request Technical Demo</a>
-        <div style="margin-top:2rem;">
+        <h1>Notelle Tech Industries</h1>
+        <div class="catchline">We prove safety with mathematics,<br>not probabilities.</div>
+        <p>Mzalendo 1.0 is the world’s first general-purpose formal verification engine that mathematically guarantees correctness in healthcare, robotics, aerospace, and defense systems.</p>
+        <p>Deployed today in Kenyan hospitals · Zero hallucinations · Open-core · Built in Nyamira, Kenya.</p>
+        <a href="#contact" class="cta">Request Technical Briefing</a>
+        <div style="margin-top:2.5rem">
             <a href="https://github.com/NotelleTech/Mzalendo-Core" target="_blank">
-                <img src="https://img.shields.io/github/stars/NotelleTech/Mzalendo-Core?style=social" alt="GitHub stars">
+                <img src="https://img.shields.io/github/stars/NotelleTech/Mzalendo-Core?style=social">
             </a>
-            <img src="https://img.shields.io/github/forks/NotelleTech/Mzalendo-Core?style=social" alt="GitHub forks">
         </div>
     </div>
 </section>
 
 <section class="section">
     <div class="container">
-        <h2 style="text-align:center;font-size:2.4rem;margin-bottom:3rem;color:var(--pl)">Core Mathematical Guarantees</h2>
+        <h2 style="font-size:2.6rem;color:var(--pl);margin-bottom:4rem">Current Domains</h2>
         <div class="grid">
-            <div class="card">
-                <h3>Intuitionistic Logic (IL)</h3>
-                <p>Constructive proofs only — every diagnostic claim requires explicit evidence. Eliminates “absence of evidence” errors.</p>
-            </div>
-            <div class="card">
-                <h3>Higher-Order Logic (HOL)</h3>
-                <p>Quantification over predicates and functions. Verifies polypharmacy, genotype-based dosing, and complex ontologies (SNOMED CT, ICD-11).</p>
-            </div>
-            <div class="card">
-                <h3>Linear Temporal Logic + Non-Linear Extensions</h3>
-                <p>LTL guarantees temporal invariants. Hybrid solvers incorporate Lorenz-type attractors to predict bifurcations in sepsis and organ-failure cascades.</p>
-            </div>
-            <div class="card">
-                <h3>Sequent Calculus + SMT + Model Checking</h3>
-                <p>Proof trees (Lean 4) · Z3/CVC5 for constraints · UPPAAL for exhaustive temporal verification. Every decision outputs a tamper-proof certificate.</p>
-            </div>
-        </div>
-        <div style="text-align:center;margin-top:3rem;">
-            <a href="/assets/mzalendo-technical-paper-nov2025.pdf" class="cta" download>
-                Download Full Technical Paper (PDF)
-            </a>
+            <div class="card"><h3>Clinical Decision Verification</h3><p>Sepsis-6, insulin infusion, ventilator weaning — live in Kenyan hospitals with printed proof certificates.</p></div>
+            <div class="card"><h3>Surgical & Industrial Robotics</h3><p><p>Mathematical guarantee that robot never enters forbidden state.</p></div>
+            <div class="card"><h3>Defense & Aerospace</h3><p>Drone swarms, missile guidance, satellite control — same core engine.</p></div>
+            <div class="card"><h3>Future-Proof Safety Layer</h3><p>Will become the mandatory verification layer for all high-risk AI systems worldwide.</p></div>
         </div>
     </div>
 </section>
-
-<section class="section" style="background:#181818">
-    <div class="container">
-        <h2 style="text-align:center;font-size:2.4rem;margin-bottom:3rem;color:var(--pl)">Currently Verified Protocols</h2>
-        <div class="grid">
-            <div class="card"><h3>Sepsis-6 Bundle</h3><p>Proves antibiotics < 60 min when qSOFA ≥ 2 or lactate > 2 mmol/L</p></div>
-            <div class="card"><h3>Continuous Insulin Infusion</h3><p>G(glucose < 70 → X ¬infusion) with dynamic rate bounds</p></div>
-            <div class="card"><h3>Ventilator Weaning</h3><p>Extubation readiness via quantified respiratory parameters</p></div>
-            <div class="card"><h3>Warfarin & Potassium Replacement</h3><p>Q4 2025 – In active development</p></div>
-        </div>
-    </div>
-</section>
-
-<div class="pilot">
-    Deployed in pilot sites: Nyamira County Referral Hospital · Kisii Teaching & Referral Hospital · November 2025
-</div>
 
 <section class="section" id="contact">
     <div class="container">
         <div class="contact">
-            <h2 style="color:var(--pl);margin-bottom:1rem">Contact for Technical Integration</h2>
+            <h2 style="color:var(--pl);font-size:2.4rem">Notelle Tech Industries</h2>
+            <p style="font-size:1.3rem;margin:1rem 0">Nyamira, Kenya</p>
             <div class="phone">
                 <a href="tel:+254113638639">+254 113 638 639</a>
-                <span> (Call)</span> · 
-                <a href="https://wa.me/254113638639" target="_blank" class="wa">WhatsApp</a>
             </div>
-            <p style="margin:1.5rem 0;color:var(--muted)">Call or WhatsApp for live demonstration, API documentation, or hospital pilot</p>
-            <p style="font-size:0.9rem;color:var(--muted)">Notelle Tech Industries · Nyamira, Kenya · November 2025</p>
+            <p style="margin:2rem 0;font-size:1.2rem">
+                <a href="https://wa.me/254113638639" target="_blank" class="wa">WhatsApp</a> · Call for live demo or partnership
+            </p>
         </div>
     </div>
 </section>
 
 <footer>
     <div class="container">
-        <p>© 2025 Notelle Tech Industries. Mzalendo 1.0 is open-core · FHIR-compatible · Regulated-software ready</p>
+        <p>© 2025 Notelle Tech Industries. Mzalendo 1.0 — Provable Safety from Africa.</p>
     </div>
 </footer>
 
