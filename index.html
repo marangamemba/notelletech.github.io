@@ -25,8 +25,8 @@
         header{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.98);backdrop-filter:blur(12px);z-index:1000;padding:1rem 0;border-bottom:1px solid #222}
         .logo{height:56px}
 
-        /* HERO - Added Perspective for illusion/depth */
-        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;perspective:1000px;}
+        /* HERO - ESSENTIAL: Added Perspective to the container for 3D effect */
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;perspective:1200px;overflow:hidden;}
         .hero h1{font-size:clamp(3.2rem,9vw,6.5rem);font-weight:800;z-index:2}
         .tag{font-size:2.1rem;font-weight:700;color:var(--pl);margin:1.5rem 0 2rem;z-index:2}
         .hero p{max-width:900px;font-size:1.2rem;color:var(--muted);z-index:2}
@@ -38,30 +38,31 @@
         .geo{
             position:absolute;
             border:var(--geo-border);
-            background:rgba(187,134,252,0.15); /* Slightly darker fill */
-            box-shadow:0 0 40px rgba(98,0,238,0.6); /* Sharper, more intense shadow */
-            animation:cubist-float 35s infinite linear alternate;
-            transition: opacity 2s;
-            opacity: 0.7; /* Increased transparency for layering effect */
+            background:rgba(187,134,252,0.1);
+            box-shadow:0 0 50px rgba(98,0,238,0.7); 
+            animation:cubist-space 35s infinite linear alternate;
+            opacity: 0.6; 
+            transform-style: preserve-3d; /* Key to true 3D effect */
         }
         
-        /* Shape 1: Cube */
-        .geo:nth-child(1){width:200px;height:200px;top:10%;left:8%;border-radius:2px;animation-duration:32s;transform: rotate(15deg);} 
-        /* Shape 2: Diamond */
+        /* Shape 1: Cube - High Perspective */
+        .geo:nth-child(1){width:250px;height:250px;top:10%;left:8%;border-radius:2px;animation-duration:32s;transform: rotate(15deg);} 
+        /* Shape 2: Diamond / Tesseract Projection */
         .geo:nth-child(2){width:150px;height:150px;top:60%;right:10%;border-radius:2px;transform:rotate(45deg);animation-duration:24s;animation-delay:-7s;} 
         /* Shape 3: Fractured Plane (Trapezoid via clip-path) */
-        .geo:nth-child(3){width:280px;height:280px;bottom:10%;left:5%;border-radius:0;clip-path: polygon(0 0, 100% 25%, 100% 100%, 25% 75%); animation-duration:40s;animation-delay:-14s;background:rgba(187,134,252,0.05);}
-        /* Shape 4: Octagon */
-        .geo:nth-child(4){width:120px;height:120px;top:25%;right:12%;border-radius:0;clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); animation-duration:20s;animation-delay:-5s;} 
-        /* Shape 5: Overlapping Rectangle */
-        .geo:nth-child(5){width:250px;height:100px;top:50%;left:50%;transform:translate(-50%,-50%) rotate(0deg);border-radius:2px;animation-duration:35s;animation-delay:-10s;background:rgba(187,134,252,0.25);}
+        .geo:nth-child(3){width:300px;height:300px;bottom:5%;left:5%;border-radius:0;clip-path: polygon(0 0, 100% 20%, 100% 100%, 20% 80%); animation-duration:40s;animation-delay:-14s;background:rgba(187,134,252,0.05);}
+        /* Shape 4: Complex Polygon (Chaos/Formal Incompleteness) */
+        .geo:nth-child(4){width:120px;height:120px;top:25%;right:12%;border-radius:0;clip-path: polygon(50% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); animation-duration:20s;animation-delay:-5s;} 
+        /* Shape 5: Thin, Distant Plane */
+        .geo:nth-child(5){width:350px;height:80px;top:50%;left:50%;transform:translate(-50%,-50%) rotate(0deg);border-radius:2px;animation-duration:35s;animation-delay:-10s;background:rgba(187,134,252,0.2);}
         
-        @keyframes cubist-float{
-            0%{transform:translate(0,0) rotateY(0deg) rotateZ(0deg) scale(1)}
-            25%{transform:translate(100px, -50px) rotateY(45deg) rotateZ(20deg) scale(1.05)}
-            50%{transform:translate(0, 50px) rotateY(0deg) rotateZ(40deg) scale(0.95)}
-            75%{transform:translate(-80px, -20px) rotateY(-45deg) rotateZ(-20deg) scale(1.02)}
-            100%{transform:translate(0,0) rotateY(0deg) rotateZ(0deg) scale(1)}
+        /* CUBIST 3D ANIMATION - Using X, Y, Z Rotation and Translation */
+        @keyframes cubist-space{
+            0%   {transform:translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);}
+            25%  {transform:translate3d(150px, -80px, 300px) rotateX(20deg) rotateY(45deg) rotateZ(10deg) scale(1.1);}
+            50%  {transform:translate3d(-100px, 50px, 0px) rotateX(0deg) rotateY(-30deg) rotateZ(20deg) scale(0.9);}
+            75%  {transform:translate3d(50px, -100px, 200px) rotateX(-15deg) rotateY(10deg) rotateZ(-15deg) scale(1.05);}
+            100% {transform:translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);}
         }
         
         /* GENERAL SECTIONS */
