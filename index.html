@@ -6,22 +6,21 @@
     <title>Notelle Tech Industries — Mzalendo 1.0</title>
     <meta name="description" content="Mzalendo 1.0 — Universal formal verification engine proving safety with mathematics. Healthcare • Robotics • Aerospace • Defense • AI. Built in Kenya.">
 
-    <!-- Fixed N Favicon (shows in tab & address bar) -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/NotelleTech/.github/main/N-favicon-32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/NotelleTech/.github/main/N-favicon-128.png" sizes="128x128">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/N-favicon-180.png">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Notelle Tech Industries — Mzalendo 1.0">
-    <meta property="og:description" content="One engine. Mathematical proof of safety.">
+    <meta property="og:description" content="Formal verification engine proving correctness in all high-risk systems using the Notelle Formalism.">
     <meta property="og:image" content="https://raw.githubusercontent.com/NotelleTech/.github/main/mzalendo-og-wide.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        :root{--p:#6200ee;--pl:#bb86fc;--bg:#0a0a0a;--text:#eaeaea;--muted:#999}
+        :root{--p:#6200ee;--pl:#bb86fc;--bg:#0a0a0a;--text:#eaeaea;--muted:#999;--dark-card:#1d1d1d}
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+        a{text-decoration:none;color:inherit}
         .container{max-width:1300px;margin:auto;padding:0 2rem}
         header{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.98);backdrop-filter:blur(12px);z-index:1000;padding:1rem 0;border-bottom:1px solid #222}
         .logo{height:56px}
@@ -34,24 +33,37 @@
         .cta{background:linear-gradient(135deg,var(--p),var(--pl));color:#fff;padding:1.4rem 4rem;border-radius:60px;font-weight:700;font-size:1.3rem;text-decoration:none;display:inline-block;margin:2.5rem 0;box-shadow:0 15px 40px rgba(98,0,238,0.5);transition:.3s;z-index:2}
         .cta:hover{transform:translateY(-6px);box-shadow:0 25px 50px rgba(98,0,238,0.7)}
 
-        /* VISIBLE FLOATING GEOMETRIC ILLUSIONS */
+        /* GEOMETRIC ILLUSIONS (ENHANCED) */
         .geo-bg{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-        .geo{position:absolute;border:3px solid var(--pl);background:rgba(187,134,252,0.08);box-shadow:0 0 30px rgba(187,134,252,0.4);animation:float 20s infinite linear}
-        .geo:nth-child(1){width:200px;height:200px;top:10%;left:8%;border-radius:50%;animation-duration:26s}
-        .geo:nth-child(2){width:150px;height:150px;top:60%;right:10%;border-radius:30px;animation-duration:20s;animation-delay:-7s}
-        .geo:nth-child(3){width:280px;height:280px;bottom:10%;left:5%;border-radius:50%;animation-duration:32s;animation-delay:-14s}
-        .geo:nth-child(4){width:100px;height:100px;top:25%;right:12%;border-radius:50%;animation-duration:18s;animation-delay:-5s}
-        .geo:nth-child(5){width:220px;height:220px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:40px;animation-duration:28s;animation-delay:-10s}
+        .geo{position:absolute;border:3px solid var(--pl);background:rgba(187,134,252,0.08);box-shadow:0 0 30px rgba(187,134,252,0.4);animation:float 30s infinite linear alternate}
+        .geo:nth-child(1){width:200px;height:200px;top:10%;left:8%;border-radius:50%;animation-duration:32s} /* Circle */
+        .geo:nth-child(2){width:150px;height:150px;top:60%;right:10%;border-radius:15px;transform:rotate(45deg);animation-duration:24s;animation-delay:-7s} /* Square/Diamond */
+        .geo:nth-child(3){width:280px;height:280px;bottom:10%;left:5%;border-radius:50%;animation-duration:40s;animation-delay:-14s} /* Large Circle */
+        .geo:nth-child(4){width:100px;height:100px;top:25%;right:12%;border-radius:10px;transform:rotate(20deg);animation-duration:20s;animation-delay:-5s} /* Small Square */
+        .geo:nth-child(5){width:220px;height:220px;top:50%;left:50%;transform:translate(-50%,-50%) rotate(0deg);border-radius:40px;animation-duration:35s;animation-delay:-10s} /* Rounded Square */
+        
         @keyframes float{
-            0%{transform:translate(0,0) rotate(0deg)}
-            100%{transform:translate(120px,-120px) rotate(360deg)}
+            0%{transform:translate(0,0) rotate(0deg) scale(1)}
+            50%{transform:translate(100px,-80px) rotate(180deg) scale(0.9)}
+            100%{transform:translate(0,0) rotate(360deg) scale(1)}
+        }
+        
+        /* GENERAL SECTIONS */
+        .app-section{
+            padding:8rem 0;
+            background:#111;
+            /* Subtle Geometric Texture Overlay */
+            background-image: radial-gradient(circle at 1px 1px, #333 1px, transparent 0);
+            background-size: 20px 20px;
         }
 
         .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;margin-top:5rem}
-        .card{background:rgba(23,23,23,0.95);padding:2.8rem;border:1px solid #222;border-radius:22px;transition:.4s;backdrop-filter:blur(6px)}
-        .card:hover{transform:translateY(-15px);box-shadow:0 30px 60px rgba(0,0,0,0.7)}
-        .card h3{color:var(--pl);font-size:1.5rem;margin-bottom:1rem}
-        .contact{background:rgba(23,23,23,0.95);padding:5rem;border-radius:32px;max-width:800px;margin:6rem auto;box-shadow:0 35px 80px rgba(0,0,0,0.8);backdrop-filter:blur(10px)}
+        .card{background:var(--dark-card);padding:2.8rem;border:1px solid #333;border-radius:22px;transition:.4s;backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+        .card:hover{transform:translateY(-10px);box-shadow:0 25px 50px rgba(98,0,238,0.2)}
+        .card h3{color:var(--pl);font-size:1.5rem;margin-bottom:0.75rem}
+        .card p{color:var(--muted);font-size:1rem}
+
+        .contact{background:var(--dark-card);padding:5rem;border-radius:32px;max-width:800px;margin:6rem auto;box-shadow:0 35px 80px rgba(0,0,0,0.8);backdrop-filter:blur(10px);border:1px solid #333}
         .phone{font-size:2.9rem;font-weight:800;margin:2rem 0}
         .phone a{color:var(--pl);text-decoration:none}
         .wa{color:#25D366;font-weight:700;font-size:1.5rem}
@@ -74,26 +86,52 @@
         <h1>Notelle Tech Industries</h1>
         <div class="tag">One engine. Mathematical proof of safety.</div>
         <p>Mzalendo 1.0 is the world’s first universal formal verification engine — proving correctness in healthcare, robotics, aerospace, defense, and all high-risk AI.</p>
-        <p>Already live in Kenyan hospitals • 2025</p>
-        <a href="#contact" class="cta">Request Live Demo</a>
+        <p>First **proof traces validated in clinical simulation** • 2025</p>
+        <a href="#contact" class="cta">Request Proof Trace Mockup & Strategic Briefing</a>
         <div style="margin-top:2rem">
             <img src="https://img.shields.io/github/stars/NotelleTech/Mzalendo-Core?style=social">
         </div>
     </div>
 </section>
 
-<!-- Universal Applications section (same as before) -->
-<section style="background:#111;padding:8rem 0">
+<section class="app-section">
     <div class="container">
         <h2 style="font-size:2.8rem;color:var(--pl);margin-bottom:5rem;text-align:center">Universal Applications</h2>
         <div class="grid">
-            <div class="card"><h3>Healthcare</h3><p>Sepsis-6, insulin infusion, ventilator weaning — live in Kenyan hospitals</p></div>
-            <div class="card"><h3>Surgical & Industrial Robotics</h3><p>Guarantees robot never violates safety envelope</p></div>
-            <div class="card"><h3>Autonomous Vehicles & Drones</h3><p>Level-5 autonomy, drone swarms — provable no-collision</p></div>
-            <div class="card"><h3>Aerospace & Defense</h3><p>Missile guidance, satellite control, reactor safety</p></div>
-            <div class="card"><h3>Cyber-Physical Systems</h3><p>Power grids, chemical plants — prevents cascading failures</p></div>
-            <div class="card"><h3>High-Risk AI Governance</h3><p>Mandatory verification layer for AGI (EU AI Act, FDA)</p></div>
+            <div class="card">
+                <h3>Healthcare</h3>
+                <p>Reduces morbidity/mortality by finding the **Topological Soft Spot** for dose and intervention optimization.</p>
+            </div>
+            <div class="card">
+                <h3>Surgical & Industrial Robotics</h3>
+                <p>Proves **Homotopic Equivalence** to guarantee a robot's path never leaves the safe operating set.</p>
+            </div>
+            <div class="card">
+                <h3>Autonomous Vehicles & Drones</h3>
+                <p>Ensures **Axiomatic Closure ($U=0$)** for path planning, delivering provable no-collision certainty.</p>
+            </div>
+            <div class="card">
+                <h3>Aerospace & Defense</h3>
+                <p>Verifies **Commutativity of Care** in complex control systems to prevent cascading failures.</p>
+            </div>
+            <div class="card">
+                <h3>Cyber-Physical Systems</h3>
+                <p>Generates **Proof Certificates** for intervention logic, securing critical national infrastructure.</p>
+            </div>
+            <div class="card">
+                <h3>High-Risk AI Governance</h3>
+                <p>Mandatory verification layer for AGI, replacing statistical confidence with **Deterministic Proof**.</p>
+            </div>
         </div>
+    </div>
+</section>
+
+<section style="padding:6rem 0; text-align:center;">
+    <div class="container">
+        <h2 style="font-size:2.8rem;color:var(--pl);margin-bottom:2rem;">The Notelle Formalism: Our Mathematical Core</h2>
+        <p style="max-width:900px;margin:auto;font-size:1.3rem;color:var(--muted);line-height:1.8;">
+            Mzalendo's distinction is its reliance on **formal mathematics**. **Category Theory** proves the safety of complex interactions, **Topology** finds the minimal safe intervention (The Soft Spot), and the **Hybrid Axiomatic Strategy** ensures our system will achieve **$U=0$** (Axiomatic Deficit closure) by funding the global rewrite of medical knowledge. We don't guess—we prove.
+        </p>
     </div>
 </section>
 
