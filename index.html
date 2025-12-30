@@ -4,165 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notelle Tech Industries — Mzalendo 1.0</title>
-    <meta name="description" content="Mzalendo 1.0 — Universal formal verification engine proving safety with mathematics. Healthcare • Robotics • Aerospace • Defense • AI. Built in Kenya.">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/NotelleTech/.github/main/N-favicon-32.png">
 
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/NotelleTech/.github/main/N-favicon-32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/NotelleTech/.github/main/N-favicon-128.png" sizes="128x128">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/NotelleTech/.github/main/N-favicon-180.png">
-
-    <meta property="og:title" content="Notelle Tech Industries — Mzalendo 1.0">
-    <meta property="og:description" content="Formal verification engine proving correctness in all high-risk systems using the Notelle Formalism.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/NotelleTech/.github/main/mzalendo-og-wide.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        :root{--p:#6200ee;--pl:#bb86fc;--bg:#0a0a0a;--text:#eaeaea;--muted:#999;--dark-card:#1d1d1d;--geo-border:3px solid var(--pl);}
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
-        a{text-decoration:none;color:inherit}
-        .container{max-width:1300px;margin:auto;padding:0 2rem}
-        header{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.98);backdrop-filter:blur(12px);z-index:1000;padding:1rem 0;border-bottom:1px solid #222}
-        .logo{height:56px}
-
-        /* HERO - ESSENTIAL: Added Perspective to the container for 3D effect */
-        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;perspective:1200px;overflow:hidden;}
-        .hero h1{font-size:clamp(3.2rem,9vw,6.5rem);font-weight:800;z-index:2}
-        .tag{font-size:2.1rem;font-weight:700;color:var(--pl);margin:1.5rem 0 2rem;z-index:2}
-        .hero p{max-width:900px;font-size:1.2rem;color:var(--muted);z-index:2}
-        .cta{background:linear-gradient(135deg,var(--p),var(--pl));color:#fff;padding:1.4rem 4rem;border-radius:60px;font-weight:700;font-size:1.3rem;text-decoration:none;display:inline-block;margin:2.5rem 0;box-shadow:0 15px 40px rgba(98,0,238,0.5);transition:.3s;z-index:2}
-        .cta:hover{transform:translateY(-6px);box-shadow:0 25px 50px rgba(98,0,238,0.7)}
-
-        /* GEOMETRIC ILLUSIONS (CUBISM/ILLUSION AESTHETICS) */
-        .geo-bg{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
-        .geo{
-            position:absolute;
-            border:var(--geo-border);
-            background:rgba(187,134,252,0.1);
-            box-shadow:0 0 50px rgba(98,0,238,0.7); 
-            animation:cubist-space 35s infinite linear alternate;
-            opacity: 0.6; 
-            transform-style: preserve-3d; /* Key to true 3D effect */
-        }
-        
-        /* Shape 1: Cube - High Perspective */
-        .geo:nth-child(1){width:250px;height:250px;top:10%;left:8%;border-radius:2px;animation-duration:32s;transform: rotate(15deg);} 
-        /* Shape 2: Diamond / Tesseract Projection */
-        .geo:nth-child(2){width:150px;height:150px;top:60%;right:10%;border-radius:2px;transform:rotate(45deg);animation-duration:24s;animation-delay:-7s;} 
-        /* Shape 3: Fractured Plane (Trapezoid via clip-path) */
-        .geo:nth-child(3){width:300px;height:300px;bottom:5%;left:5%;border-radius:0;clip-path: polygon(0 0, 100% 20%, 100% 100%, 20% 80%); animation-duration:40s;animation-delay:-14s;background:rgba(187,134,252,0.05);}
-        /* Shape 4: Complex Polygon (Chaos/Formal Incompleteness) */
-        .geo:nth-child(4){width:120px;height:120px;top:25%;right:12%;border-radius:0;clip-path: polygon(50% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); animation-duration:20s;animation-delay:-5s;} 
-        /* Shape 5: Thin, Distant Plane */
-        .geo:nth-child(5){width:350px;height:80px;top:50%;left:50%;transform:translate(-50%,-50%) rotate(0deg);border-radius:2px;animation-duration:35s;animation-delay:-10s;background:rgba(187,134,252,0.2);}
-        
-        /* CUBIST 3D ANIMATION - Using X, Y, Z Rotation and Translation */
-        @keyframes cubist-space{
-            0%   {transform:translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);}
-            25%  {transform:translate3d(150px, -80px, 300px) rotateX(20deg) rotateY(45deg) rotateZ(10deg) scale(1.1);}
-            50%  {transform:translate3d(-100px, 50px, 0px) rotateX(0deg) rotateY(-30deg) rotateZ(20deg) scale(0.9);}
-            75%  {transform:translate3d(50px, -100px, 200px) rotateX(-15deg) rotateY(10deg) rotateZ(-15deg) scale(1.05);}
-            100% {transform:translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);}
-        }
-        
-        /* GENERAL SECTIONS */
-        .app-section{
-            padding:8rem 0;
-            background:#111;
-            background-image: radial-gradient(circle at 1px 1px, #333 1px, transparent 0);
-            background-size: 20px 20px;
+        :root {
+            --p: #6200ee;
+            --pl: #bb86fc;
+            --bg: #050505;
+            --code-green: #00ff41;
         }
 
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;margin-top:5rem}
-        .card{background:var(--dark-card);padding:2.8rem;border:1px solid #333;border-radius:22px;transition:.4s;backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-        .card:hover{transform:translateY(-10px);box-shadow:0 25px 50px rgba(98,0,238,0.2)}
-        .card h3{color:var(--pl);font-size:1.5rem;margin-bottom:0.75rem}
-        .card p{color:var(--muted);font-size:1rem}
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
 
-        .contact{background:var(--dark-card);padding:5rem;border-radius:32px;max-width:800px;margin:6rem auto;box-shadow:0 35px 80px rgba(0,0,0,0.8);backdrop-filter:blur(10px);border:1px solid #333}
-        .phone{font-size:2.9rem;font-weight:800;margin:2rem 0}
-        .phone a{color:var(--pl);text-decoration:none}
-        .wa{color:#25D366;font-weight:700;font-size:1.5rem}
-        footer{padding:3rem 0;color:#666;text-align:center}
+        /* --- UI ILLUSION: THE VERIFICATION STREAM --- */
+        #proof-stream {
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            width: 250px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--pl);
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* --- LOGO ILLUSION --- */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .logo-container {
+            perspective: 1000px;
+        }
+        .nav-logo {
+            height: 60px;
+            filter: drop-shadow(0 0 15px var(--p));
+            animation: logo-float 4s ease-in-out infinite;
+        }
+        @keyframes logo-float {
+            0%, 100% { transform: translateZ(0) rotateY(0deg); }
+            50% { transform: translateZ(50px) rotateY(20deg); }
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #1a0033 0%, #050505 100%);
+        }
+
+        .glass-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(187, 134, 252, 0.2);
+            padding: 4rem;
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: 0 0 80px rgba(98, 0, 238, 0.15);
+            max-width: 900px;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin: 0;
+            background: linear-gradient(to bottom, #fff 30%, var(--pl));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- DYNAMIC PROOF TYPING --- */
+        .proof-box {
+            margin-top: 2rem;
+            font-family: 'Courier New', monospace;
+            height: 50px;
+            color: var(--code-green);
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cursor {
+            width: 10px;
+            height: 20px;
+            background: var(--code-green);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <img src="https://raw.githubusercontent.com/NotelleTech/.github/main/N-logo-white.png" alt="Notelle Tech Industries N logo" class="logo">
-    </div>
-</header>
-
-<section class="hero">
-    <div class="geo-bg">
-        <div class="geo"></div><div class="geo"></div><div class="geo"></div><div class="geo"></div><div class="geo"></div>
-    </div>
-    <div class="container">
-        <h1>Notelle Tech Industries</h1>
-        <div class="tag">One engine. Mathematical proof of safety.</div>
-        <p>Mzalendo 1.0 is the world’s first universal formal verification engine — proving correctness in healthcare, robotics, aerospace, defense, and all high-risk AI.</p>
-        <p>First **proof traces validated in clinical simulation** • 2025</p>
-        <a href="#contact" class="cta">Request Proof Trace Mockup & Strategic Briefing</a>
-        <div style="margin-top:2rem">
-            <img src="https://img.shields.io/github/stars/NotelleTech/Mzalendo-Core?style=social">
+    <header>
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/NotelleTech/.github/main/N-logo-white.png" alt="N" class="nav-logo">
         </div>
-    </div>
-</section>
+    </header>
 
-<section class="app-section">
-    <div class="container">
-        <h2 style="font-size:2.8rem;color:var(--pl);margin-bottom:5rem;text-align:center">Universal Applications</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Healthcare</h3>
-                <p>Reduces morbidity/mortality by finding the **Topological Soft Spot** for dose and intervention optimization.</p>
+    <div id="proof-stream"></div>
+
+    <section class="hero">
+        <div class="glass-box">
+            <p style="text-transform: uppercase; letter-spacing: 5px; color: var(--pl); font-size: 0.9rem;">Verification Engine</p>
+            <h1>Mzalendo 1.0</h1>
+            
+            <div class="proof-box">
+                <span id="typing-proof"></span><span class="cursor"></span>
             </div>
-            <div class="card">
-                <h3>Surgical & Industrial Robotics</h3>
-                <p>Proves **Homotopic Equivalence** to guarantee a robot's path never leaves the safe operating set.</p>
-            </div>
-            <div class="card">
-                <h3>Autonomous Vehicles & Drones</h3>
-                <p>Ensures **Axiomatic Closure ($U=0$)** for path planning, delivering provable no-collision certainty.</p>
-            </div>
-            <div class="card">
-                <h3>Aerospace & Defense</h3>
-                <p>Verifies **Commutativity of Care** in complex control systems to prevent cascading failures.</p>
-            </div>
-            <div class="card">
-                <h3>Cyber-Physical Systems</h3>
-                <p>Generates **Proof Certificates** for intervention logic, securing critical national infrastructure.</p>
-            </div>
-            <div class="card">
-                <h3>High-Risk AI Governance</h3>
-                <p>Mandatory verification layer for AGI, replacing statistical confidence with **Deterministic Proof**.</p>
-            </div>
+
+            <p style="color: #888; max-width: 600px; margin: 2rem auto; line-height: 1.6;">
+                Formalizing the safety of high-risk systems through Notelle Formalism. Proving $U=0$ across all topological soft spots.
+            </p>
         </div>
-    </div>
-</section>
+    </section>
 
-<section style="padding:6rem 0; text-align:center;">
-    <div class="container">
-        <h2 style="font-size:2.8rem;color:var(--pl);margin-bottom:2rem;">The Notelle Formalism: Our Mathematical Core</h2>
-        <p style="max-width:900px;margin:auto;font-size:1.3rem;color:var(--muted);line-height:1.8;">
-            Mzalendo's distinction is its reliance on **formal mathematics**. **Category Theory** proves the safety of complex interactions, **Topology** finds the minimal safe intervention (The Soft Spot), and the **Hybrid Axiomatic Strategy** ensures our system will achieve **$U=0$** (Axiomatic Deficit closure) by funding the global rewrite of medical knowledge. We don't guess—we prove.
-        </p>
-    </div>
-</section>
+    <script>
+        // TYPEWRITER EFFECT FOR MATH
+        const proofs = [
+            "f: A → B, g: B → C ⇒ g ∘ f: A → C",
+            "U = 0 (Axiomatic Closure Achieved)",
+            "Topological Soft Spot Verified...",
+            "∀x ∈ S, Safety(x) = True",
+            "Category Theory Mapping: Complete",
+            "H_n(X, A) → H_n(X) → H_n(X/A)"
+        ];
 
-<section id="contact">
-    <div class="container">
-        <div class="contact">
-            <h2 style="color:var(--pl);font-size:2.6rem">Notelle Tech Industries</h2>
-            <p>Nyamira, Kenya</p>
-            <div class="phone"><a href="tel:+254113638639">+254 113 638 639</a></div>
-            <p><a href="https://wa.me/254113638639" target="_blank" class="wa">WhatsApp</a> for instant live demo</p>
-        </div>
-    </div>
-</section>
+        let pIndex = 0;
+        let charIndex = 0;
+        const target = document.getElementById('typing-proof');
 
-<footer>© 2025 Notelle Tech Industries — Mzalendo 1.0 — Built in Kenya</footer>
+        function type() {
+            if (charIndex < proofs[pIndex].length) {
+                target.textContent += proofs[pIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 80);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
 
+        function erase() {
+            if (charIndex > 0) {
+                target.textContent = proofs[pIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 40);
+            } else {
+                pIndex = (pIndex + 1) % proofs.length;
+                setTimeout(type, 500);
+            }
+        }
+
+        // SIDE STREAM GENERATOR
+        const stream = document.getElementById('proof-stream');
+        setInterval(() => {
+            const line = document.createElement('div');
+            line.style.marginBottom = '5px';
+            line.textContent = `TRACE_VAL: ${Math.random().toString(16).substr(2, 8)}...OK`;
+            stream.prepend(line);
+            if (stream.children.length > 15) stream.removeChild(stream.lastChild);
+        }, 1000);
+
+        type();
+    </script>
 </body>
 </html>
